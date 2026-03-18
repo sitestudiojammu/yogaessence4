@@ -16,14 +16,14 @@
     }
 
     :root {
-      --deep-brown: #3e2e23;         /* deepest background */
-      --warm-tan: #b07d5e;            /* primary accent (replaces raspberry) */
+      --deep-brown: #3e2e23;
+      --warm-tan: #b07d5e;
       --pure-white: #ffffff;
-      --dark-brown-shade: #2c1e15;     /* header, cards */
-      --medium-brown: #5a3f2e;          /* sections */
-      --card-bg: #2c1e15;               /* card background */
+      --dark-brown-shade: #2c1e15;
+      --medium-brown: #5a3f2e;
+      --card-bg: #2c1e15;
       --text-offwhite: #f5f0eb;
-      --light-brown-faq: #7a5a44;       /* FAQ card background */
+      --light-brown-faq: #7a5a44;
       --font-serif: 'Playfair Display', serif;
       --font-elegant: 'Cormorant Garamond', serif;
       --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -35,6 +35,7 @@
       color: var(--text-offwhite);
       line-height: 1.6;
       overflow-x: hidden;
+      padding-bottom: 100px; /* prevent content from hiding behind fixed button */
     }
 
     .container {
@@ -584,7 +585,7 @@
       color: #d4bcac;
     }
 
-    /* FAQ accordion - more compact */
+    /* FAQ accordion - compact */
     .faq-grid {
       max-width: 800px;
       margin: 2rem auto 0;
@@ -592,18 +593,18 @@
     .faq-item {
       background: var(--light-brown-faq);
       border: 1px solid var(--warm-tan);
-      border-radius: 1.5rem;  /* slightly smaller radius */
-      margin-bottom: 0.8rem;    /* reduced gap */
+      border-radius: 1.5rem;
+      margin-bottom: 0.8rem;
       overflow: hidden;
       box-shadow: 0 5px 10px -3px black;
     }
     .faq-question {
-      padding: 0.9rem 1.5rem;   /* reduced padding */
+      padding: 0.9rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-      font-size: 1.1rem;        /* smaller font */
+      font-size: 1.1rem;
       font-family: var(--font-serif);
       transition: background 0.3s;
       color: #f5e6d5;
@@ -614,24 +615,24 @@
     .faq-question i {
       transition: transform 0.3s;
       color: var(--warm-tan);
-      font-size: 1rem;          /* smaller icon */
+      font-size: 1rem;
     }
     .faq-question.open i {
       transform: rotate(180deg);
     }
     .faq-answer {
       max-height: 0;
-      padding: 0 1.5rem;        /* reduced padding */
+      padding: 0 1.5rem;
       overflow: hidden;
       transition: max-height 0.4s ease, padding 0.3s ease;
       color: #e0cfbc;
       border-top: 0 solid var(--warm-tan);
       background: var(--light-brown-faq);
-      font-size: 0.95rem;        /* slightly smaller text */
+      font-size: 0.95rem;
     }
     .faq-answer.show {
       max-height: 250px;
-      padding: 0 1.5rem 1rem 1.5rem;  /* bottom padding reduced */
+      padding: 0 1.5rem 1rem 1.5rem;
       border-top-width: 1px;
     }
     .faq-answer p {
@@ -652,7 +653,7 @@
       display: block;
     }
 
-    /* fixed buttons */
+    /* Fixed Book Free Session button (bottom center, taller, narrower) */
     .fixed-book-btn {
       position: fixed;
       bottom: 30px;
@@ -660,8 +661,8 @@
       transform: translateX(-50%);
       background: var(--warm-tan);
       color: white;
-      padding: 1rem 2.5rem;
-      border-radius: 60px;
+      padding: 1.2rem 2rem;   /* taller (more length), narrower (less width) */
+      border-radius: 30px;      /* curved rectangle */
       font-size: 1.2rem;
       font-weight: 500;
       border: 2px solid white;
@@ -675,6 +676,7 @@
       gap: 0.8rem;
       letter-spacing: 0.5px;
       backdrop-filter: blur(5px);
+      white-space: nowrap;      /* keep in one line */
     }
     .fixed-book-btn i {
       font-size: 1.4rem;
@@ -685,6 +687,7 @@
       box-shadow: 0 15px 30px rgba(0,0,0,0.6);
     }
 
+    /* Fixed WhatsApp icon + number (right) */
     .fixed-whatsapp {
       position: fixed;
       bottom: 30px;
@@ -890,17 +893,13 @@
         text-align: center;
       }
 
-      .fixed-book-btn, .fixed-whatsapp {
+      .fixed-whatsapp {
         bottom: 20px;
-        padding: 0.7rem 1.2rem;
-        font-size: 1rem;
+        right: 20px;
+        padding: 0.7rem;
       }
       .fixed-whatsapp span {
         display: none;
-      }
-      .fixed-whatsapp {
-        right: 20px;
-        padding: 0.7rem;
       }
       .fixed-whatsapp i {
         font-size: 2rem;
@@ -1102,7 +1101,7 @@
     </div>
   </main>
 
-  <!-- Fixed Book Free Session button (center) -->
+  <!-- Fixed Book Free Session button (bottom center, taller, narrower, one line) -->
   <a href="#" class="fixed-book-btn" id="fixedBookBtn"><i class="fas fa-calendar-alt"></i> Book Free Session</a>
 
   <!-- Fixed WhatsApp icon + number (right) -->
