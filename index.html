@@ -6,7 +6,7 @@
   <title>Palvi Gulati · yoga · elegance</title>
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts: Inter + Playfair Display + subtle Cormorant for extra elegance -->
+  <!-- Google Fonts: Inter + Playfair Display + subtle Cormorant -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -17,7 +17,7 @@
 
     :root {
       --deep-burgundy: #461b22;
-      --raspberry: #860930;           /* primary accent and now section bg */
+      --raspberry: #860930;
       --pure-white: #ffffff;
       --dark-burgundy-shade: #2f0f14;
       --medium-burgundy: #3f1620;
@@ -42,7 +42,6 @@
       padding: 0 1.5rem;
     }
 
-    /* ----- TYPOGRAPHY IMPROVEMENTS ----- */
     h1, h2, h3 {
       font-weight: 300;
       letter-spacing: -0.02em;
@@ -53,7 +52,6 @@
       margin-bottom: 1.5rem;
       font-family: var(--font-serif);
       font-weight: 400;
-      letter-spacing: -0.01em;
     }
 
     h2 em, h3 em {
@@ -67,7 +65,6 @@
       margin-bottom: 1.8rem;
       font-weight: 300;
       font-family: var(--font-elegant);
-      letter-spacing: 0.3px;
     }
 
     p {
@@ -75,7 +72,6 @@
       font-size: 1.1rem;
     }
 
-    /* ----- BUTTONS (enhanced) ----- */
     .btn {
       display: inline-block;
       background: transparent;
@@ -128,7 +124,7 @@
       color: var(--pure-white);
     }
 
-    /* ----- HEADER ----- */
+    /* header & navigation (unchanged, keep same) */
     .site-header {
       background-color: var(--dark-burgundy-shade);
       border-bottom: 4px solid var(--raspberry);
@@ -167,7 +163,6 @@
       font-weight: 300;
       font-size: 1.1rem;
       transition: color 0.3s;
-      letter-spacing: 0.5px;
       font-family: var(--font-elegant);
     }
 
@@ -195,7 +190,7 @@
       color: var(--raspberry);
     }
 
-    /* ----- HERO (full screen with user image) ----- */
+    /* hero (same) */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -242,10 +237,9 @@
       margin: 1rem 0 2rem;
       text-shadow: 0 2px 10px rgba(0,0,0,0.4);
       font-family: var(--font-elegant);
-      letter-spacing: 2px;
     }
 
-    /* ----- ANIMATIONS (base) ----- */
+    /* animations & scroll reveal */
     @keyframes fadeUp {
       0% { opacity: 0; transform: translateY(40px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -261,7 +255,6 @@
       animation: fadeIn 1s ease;
     }
 
-    /* scroll reveal animation (added) */
     .fade-on-scroll {
       opacity: 0;
       transform: translateY(30px);
@@ -273,7 +266,7 @@
       transform: translateY(0);
     }
 
-    /* ----- BALI WHITE SECTION ----- */
+    /* bali white section */
     .bali-white {
       background-color: var(--pure-white);
       color: #121212;
@@ -282,11 +275,8 @@
     .bali-white h2, .bali-white .lead, .bali-white p {
       color: #121212;
     }
-    .bali-white .btn {
-      display: none;
-    }
 
-    /* ----- MEMBERSHIP DEEP ----- */
+    /* membership deep */
     .membership-deep {
       background-color: var(--deep-burgundy) !important;
     }
@@ -298,91 +288,9 @@
       border-color: var(--raspberry);
     }
 
-    /* ----- ONLINE COURSES SECTION (background #860930) ----- */
+    /* redesigned feature cards with oval images */
     .section-raspberry {
       background-color: var(--raspberry) !important;
-    }
-    .section-raspberry .feature-card {
-      background: #2f0f14; 
-    }
-
-    /* shared styles */
-    .image-card {
-      border-radius: 2rem;
-      overflow: hidden;
-      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.8);
-      border: 1px solid var(--raspberry);
-      transition: transform 0.6s, box-shadow 0.4s;
-    }
-
-    .image-card:hover {
-      transform: scale(1.02) translateY(-8px);
-      box-shadow: 0 30px 40px -10px black;
-    }
-
-    .image-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.8s;
-    }
-
-    .image-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .pricing-card {
-      background: var(--card-bg);
-      padding: 2.5rem;
-      border-radius: 2.5rem;
-      border: 1px solid var(--raspberry);
-      max-width: 550px;
-      margin: 0 auto;
-      transition: transform 0.4s, box-shadow 0.4s;
-    }
-
-    .pricing-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 25px 30px -10px #2f0f14;
-    }
-
-    .pricing-card .title {
-      font-size: 1.8rem;
-      color: #f0dbc0;
-    }
-
-    .price {
-      font-size: 3rem;
-      font-weight: 500;
-      margin: 1rem 0 0.3rem;
-    }
-
-    .price small {
-      font-size: 1rem;
-      font-weight: 300;
-      color: #dbbca0;
-    }
-
-    .period {
-      color: #dbbca0;
-      margin-bottom: 1rem;
-    }
-
-    .benefits {
-      list-style: none;
-      margin: 2rem 0;
-    }
-
-    .benefits li {
-      padding: 0.7rem 0;
-      border-bottom: 1px solid var(--raspberry);
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .benefits li i {
-      color: var(--raspberry);
-      width: 1.5rem;
     }
 
     .feature-grid {
@@ -398,6 +306,8 @@
       overflow: hidden;
       transition: transform 0.4s, box-shadow 0.4s;
       border: 1px solid var(--raspberry);
+      text-align: center;
+      padding-bottom: 2rem;
     }
 
     .feature-card:hover {
@@ -405,24 +315,36 @@
       box-shadow: 0 30px 35px -10px black;
     }
 
-    .feature-img {
-      height: 260px;
+    /* oval image container */
+    .oval-img-container {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
       overflow: hidden;
+      margin: 2.5rem auto 1.5rem;
+      border: 4px solid var(--raspberry);
+      box-shadow: 0 15px 25px -8px rgba(0,0,0,0.7);
+      transition: transform 0.5s ease;
     }
 
-    .feature-img img {
+    .feature-card:hover .oval-img-container {
+      transform: scale(1.05);
+    }
+
+    .oval-img-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
       transition: transform 0.6s;
     }
 
-    .feature-card:hover .feature-img img {
-      transform: scale(1.1);
+    .feature-card:hover .oval-img-container img {
+      transform: scale(1.15);
     }
 
     .feature-content {
-      padding: 2rem;
+      padding: 0 1.5rem 1rem;
     }
 
     .feature-content h3 {
@@ -435,8 +357,55 @@
 
     .feature-content p {
       color: #b7a792;
-      margin-bottom: 1.8rem;
+      margin-bottom: 2rem;
     }
+
+    .feature-content .btn {
+      margin-top: 0.5rem;
+    }
+
+    /* other sections (pricing, video, etc) unchanged */
+    .image-card {
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.8);
+      border: 1px solid var(--raspberry);
+      transition: transform 0.6s, box-shadow 0.4s;
+    }
+    .image-card:hover {
+      transform: scale(1.02) translateY(-8px);
+      box-shadow: 0 30px 40px -10px black;
+    }
+    .image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.8s;
+    }
+    .image-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 2.5rem;
+      border: 1px solid var(--raspberry);
+      max-width: 550px;
+      margin: 0 auto;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 30px -10px #2f0f14;
+    }
+    .pricing-card .title { font-size: 1.8rem; color: #f0dbc0; }
+    .price { font-size: 3rem; font-weight: 500; margin: 1rem 0 0.3rem; }
+    .price small { font-size: 1rem; font-weight: 300; color: #dbbca0; }
+    .period { color: #dbbca0; margin-bottom: 1rem; }
+    .benefits { list-style: none; margin: 2rem 0; }
+    .benefits li { padding: 0.7rem 0; border-bottom: 1px solid var(--raspberry); display: flex; gap: 0.5rem; }
+    .benefits li i { color: var(--raspberry); width: 1.5rem; }
 
     .video-block {
       position: relative;
@@ -446,281 +415,93 @@
       border: 2px solid var(--raspberry);
       transition: transform 0.4s, box-shadow 0.4s;
     }
-
-    .video-block:hover {
-      transform: scale(1.02);
-      box-shadow: 0 25px 30px -8px black;
-    }
-
-    .video-thumb {
-      width: 100%;
-      display: block;
-    }
-
+    .video-block:hover { transform: scale(1.02); box-shadow: 0 25px 30px -8px black; }
+    .video-thumb { width: 100%; display: block; }
     .play-btn {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      border: 2px solid var(--raspberry);
-      transition: 0.3s;
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.5); color: white; width: 90px; height: 90px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; border: 2px solid var(--raspberry); transition: 0.3s;
     }
-
-    .play-btn:hover {
-      background: var(--raspberry);
-      color: #000;
-      transform: translate(-50%, -50%) scale(1.1);
-    }
+    .play-btn:hover { background: var(--raspberry); color: #000; transform: translate(-50%, -50%) scale(1.1); }
 
     .quote-section {
-      background: linear-gradient(rgba(70, 27, 34, 0.8), rgba(70, 27, 34, 0.8)), 
-                  url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2022&auto=format&fit=crop') center/cover;
-      min-height: 60vh;
-      display: flex;
-      align-items: flex-end;
+      background: linear-gradient(rgba(70,27,34,0.8), rgba(70,27,34,0.8)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2022&auto=format&fit=crop') center/cover;
+      min-height: 60vh; display: flex; align-items: flex-end;
     }
-
-    .quote-block {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 4rem;
-    }
-
-    .quote-text {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 300;
-      line-height: 1.4;
-      font-family: var(--font-serif);
-      color: var(--pure-white);
-      font-style: italic;
-    }
-
-    .quote-author {
-      margin-top: 1.5rem;
-      color: #e0bca5;
-      font-size: 1.4rem;
-      font-family: var(--font-elegant);
-    }
+    .quote-block { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
+    .quote-text { font-size: clamp(2rem,5vw,3rem); font-weight:300; line-height:1.4; font-family:var(--font-serif); color:var(--pure-white); font-style:italic; }
+    .quote-author { margin-top:1.5rem; color:#e0bca5; font-size:1.4rem; font-family:var(--font-elegant); }
 
     .newsletter {
-      background: var(--dark-burgundy-shade);
-      border-radius: 4rem;
-      padding: 3rem 2rem;
-      text-align: center;
-      border: 1px solid var(--raspberry);
+      background: var(--dark-burgundy-shade); border-radius: 4rem; padding: 3rem 2rem;
+      text-align: center; border: 1px solid var(--raspberry);
     }
-
-    .newsletter h3 {
-      font-size: 2.5rem;
-      font-weight: 300;
-      color: var(--pure-white);
-      font-family: var(--font-serif);
-    }
-
-    .newsletter p {
-      margin: 1rem 0 2rem;
-      color: #d4bcac;
-    }
-
-    .newsletter-form {
-      display: flex;
-      max-width: 600px;
-      margin: 0 auto;
-      gap: 0.8rem;
-    }
-
-    .newsletter-form input {
-      flex: 1;
-      padding: 1.2rem 1.8rem;
-      border: none;
-      border-radius: 3rem;
-      background: #3f1620;
-      color: var(--pure-white);
-      font-size: 1.1rem;
-    }
-
-    .newsletter-form input::placeholder {
-      color: #b29583;
-    }
-
-    .newsletter-form button {
-      padding: 1.2rem 2.5rem;
-      border-radius: 3rem;
-      background: var(--raspberry);
-      border: none;
-      color: var(--pure-white);
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 1.1rem;
-    }
-
-    .newsletter-form button:hover {
-      background: #b03b5c;
-      transform: translateY(-2px);
-    }
+    .newsletter h3 { font-size:2.5rem; font-weight:300; color:var(--pure-white); font-family:var(--font-serif); }
+    .newsletter p { margin:1rem 0 2rem; color:#d4bcac; }
+    .newsletter-form { display:flex; max-width:600px; margin:0 auto; gap:0.8rem; }
+    .newsletter-form input { flex:1; padding:1.2rem 1.8rem; border:none; border-radius:3rem; background:#3f1620; color:var(--pure-white); font-size:1.1rem; }
+    .newsletter-form input::placeholder { color:#b29583; }
+    .newsletter-form button { padding:1.2rem 2.5rem; border-radius:3rem; background:var(--raspberry); border:none; color:var(--pure-white); font-weight:600; cursor:pointer; transition:0.3s; font-size:1.1rem; }
+    .newsletter-form button:hover { background:#b03b5c; transform:translateY(-2px); }
 
     .site-footer {
-      background: var(--dark-burgundy-shade);
-      padding: 2.5rem 0;
-      border-top: 4px solid var(--raspberry);
+      background: var(--dark-burgundy-shade); padding: 2.5rem 0; border-top: 4px solid var(--raspberry);
     }
-
     .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1.5rem;
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem;
     }
-
-    .footer-copy {
-      color: #cfaF9a;
-      font-size: 1rem;
-    }
-
-    .footer-links a {
-      color: #e0cfbc;
-      text-decoration: none;
-      margin: 0 1.2rem;
-      font-size: 1rem;
-    }
-
-    .footer-links a:hover {
-      color: var(--raspberry);
-    }
-
-    .social-footer a {
-      color: #e0cfbc;
-      font-size: 1.4rem;
-      margin-left: 1.2rem;
-    }
-
-    .social-footer a:hover {
-      color: var(--raspberry);
-    }
+    .footer-copy { color: #cfaF9a; font-size: 1rem; }
+    .footer-links a { color: #e0cfbc; text-decoration: none; margin: 0 1.2rem; font-size: 1rem; }
+    .footer-links a:hover { color: var(--raspberry); }
+    .social-footer a { color: #e0cfbc; font-size: 1.4rem; margin-left: 1.2rem; }
+    .social-footer a:hover { color: var(--raspberry); }
 
     .legal-note {
-      background: #1f0a0f;
-      padding: 1.5rem 0;
-      font-size: 0.9rem;
-      color: #b29583;
-      text-align: center;
+      background: #1f0a0f; padding: 1.5rem 0; font-size: 0.9rem; color: #b29583; text-align: center;
     }
 
-    /* NEW: membership section with background image (above Vogue) */
+    /* membership with bg image */
     .membership-with-bg {
-      position: relative;
-      isolation: isolate;
-      background-color: transparent !important; /* remove solid bg, we use pseudo */
-      z-index: 1;
+      position: relative; isolation: isolate; background-color: transparent !important; z-index: 1;
     }
-
     .membership-with-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background-image: url('https://i.ibb.co/HpKLdfJw/IMG-3826.jpg');
-      background-size: cover;
-      background-position: center 30%;
-      background-repeat: no-repeat;
-      filter: brightness(0.5) saturate(1.2);
-      z-index: -2;
+      background-size: cover; background-position: center 30%; background-repeat: no-repeat;
+      filter: brightness(0.5) saturate(1.2); z-index: -2;
     }
-
     .membership-with-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
       z-index: -1;
     }
+    .membership-with-bg .container { position: relative; z-index: 2; }
 
-    .membership-with-bg .container {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* responsiveness */
+    /* responsive */
     @media (max-width: 900px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 1rem;
-        background: var(--dark-burgundy-shade);
-        padding: 1.5rem;
-        border-radius: 1rem;
-        margin-top: 0.5rem;
-        border: 1px solid var(--raspberry);
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .header-inner {
-        position: relative;
-      }
-
-      .social-header {
-        margin-left: auto;
-      }
-
-      .grid-2 {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .newsletter-form {
-        flex-direction: column;
-      }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; flex-direction: column; width: 100%; gap: 1rem; background: var(--dark-burgundy-shade); padding: 1.5rem; border-radius: 1rem; margin-top: 0.5rem; border: 1px solid var(--raspberry); }
+      .nav-links.show { display: flex; }
+      .social-header { margin-left: auto; }
+      .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .newsletter-form { flex-direction: column; }
     }
-
     @media (max-width: 600px) {
-      .pricing-card {
-        padding: 1.8rem;
-      }
+      .pricing-card { padding: 1.8rem; }
+      .oval-img-container { width: 150px; height: 150px; }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <div class="logo">
-        <a href="/">Palvi Gulati</a>
-      </div>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-        <i class="fas fa-bars"></i>
-      </button>
-
+      <div class="logo"><a href="/">Palvi Gulati</a></div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
       <nav class="nav-links" id="mainNav">
-        <a href="#">Home</a>
-        <a href="#">Bio</a>
-        <a href="#">Gallery</a>
-        <a href="#">Programs</a>
-        <a href="#">Contact Us</a>
+        <a href="#">Home</a><a href="#">Bio</a><a href="#">Gallery</a><a href="#">Programs</a><a href="#">Contact Us</a>
       </nav>
-
       <div class="social-header">
         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -731,7 +512,7 @@
   </header>
 
   <main>
-    <!-- HERO (full screen with user image) -->
+    <!-- HERO -->
     <section class="hero fade-on-scroll" id="heroSection">
       <div class="container hero-content">
         <h2>Palvi Gulati</h2>
@@ -739,7 +520,7 @@
       </div>
     </section>
 
-    <!-- BALI INTENSIVES white background, black text, group image -->
+    <!-- BALI INTENSIVES -->
     <section class="bali-white fade-on-scroll">
       <div class="container grid-2">
         <div>
@@ -753,7 +534,7 @@
       </div>
     </section>
 
-    <!-- MONTHLY MEMBERSHIP with rupee, #461b22 bg -->
+    <!-- MONTHLY MEMBERSHIP (first) -->
     <section class="section membership-deep fade-on-scroll" style="background-color: #461b22;">
       <div class="container">
         <h2 style="text-align: center; color: white;">Monthly Membership</h2>
@@ -772,13 +553,13 @@
       </div>
     </section>
 
-    <!-- ONLINE COURSES & PRIVATE SESSIONS – background #860930, with provided images -->
+    <!-- REDESIGNED ONLINE COURSES & PRIVATE SESSIONS with oval images -->
     <section class="section section-raspberry fade-on-scroll" style="background-color: #860930;">
       <div class="container">
         <div class="feature-grid">
           <!-- online courses card -->
           <div class="feature-card">
-            <div class="feature-img">
+            <div class="oval-img-container">
               <img src="https://i.ibb.co/23GffPsk/IMG-20260317-191051.jpg" alt="Online course">
             </div>
             <div class="feature-content">
@@ -789,7 +570,7 @@
           </div>
           <!-- private sessions card -->
           <div class="feature-card">
-            <div class="feature-img">
+            <div class="oval-img-container">
               <img src="https://i.ibb.co/KzcK0Lky/Untitled-design-20260317-143454-0000.png" alt="Private session">
             </div>
             <div class="feature-content">
@@ -802,13 +583,13 @@
       </div>
     </section>
 
-    <!-- SECOND MEMBERSHIP + VIDEO – now with background image (IMG-3826.jpg) behind, directly above Vogue -->
-    <section class="section membership-with-bg fade-on-scroll" style="background-color: transparent;"> <!-- bg removed, handled by pseudo -->
+    <!-- SECOND MEMBERSHIP + VIDEO with background image (IMG-3826.jpg) -->
+    <section class="section membership-with-bg fade-on-scroll" style="background-color: transparent;">
       <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
           <div>
             <h2>Monthly Membership</h2>
-            <div style="background: #2f0f14; padding: 2rem; border-radius: 2.5rem; border:1px solid var(--raspberry); backdrop-filter: blur(2px); background: rgba(47,15,20,0.85);">
+            <div style="background: rgba(47,15,20,0.85); padding: 2rem; border-radius: 2.5rem; border:1px solid var(--raspberry); backdrop-filter: blur(2px);">
               <div style="font-size: 1.8rem;">ALL my recordings + classes + online courses</div>
               <div style="font-size: 2.8rem; margin:1rem 0;">₹5,000.00</div>
               <div style="margin-bottom: 1rem;">Every month</div>
@@ -829,13 +610,11 @@
       </div>
     </section>
 
-    <!-- PRESS / GALLERY SNIPPET (Vogue – "Vague beauty awards") -->
+    <!-- PRESS / VOGUE -->
     <section class="section section-dark fade-on-scroll" style="padding: 3rem 0; background-color: #2f0f14;">
       <div class="container" style="text-align: center;">
         <img src="https://images.squarespace-cdn.com/content/v1/5f3358474265747ccb753359/1597202672778-V40ZRSON9BHCL8N278UW/Vogue-Beauty-Awards-2018_deepika_mehta-600px.png" alt="Vogue feature" style="max-width: 280px; border-radius: 20px; opacity: 0.95; box-shadow: 0 15px 25px -5px black; border:2px solid var(--raspberry);">
-        <div style="margin-top: 2rem;">
-          <a href="#" class="btn btn-outline">Featured Media</a>
-        </div>
+        <div style="margin-top: 2rem;"><a href="#" class="btn btn-outline">Featured Media</a></div>
       </div>
     </section>
 
@@ -860,7 +639,7 @@
       </div>
     </section>
 
-    <!-- LEGAL DISCLAIMER -->
+    <!-- LEGAL -->
     <div class="legal-note">
       <div class="container">
         <p><strong>Terms & conditions, Privacy, Refunds:</strong> No cancellations or refunds. Use of this site subject to laws of India. Updated November 2024.</p>
@@ -871,12 +650,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-copy">© PALVI GULATI 2025</div>
-      <div class="footer-links">
-        <a href="#">Home</a>
-        <a href="#">Press</a>
-        <a href="#">Gallery</a>
-        <a href="#">Contact</a>
-      </div>
+      <div class="footer-links"><a href="#">Home</a><a href="#">Press</a><a href="#">Gallery</a><a href="#">Contact</a></div>
       <div class="social-footer">
         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -887,7 +661,7 @@
   </footer>
 
   <script>
-    // Mobile menu toggle
+    // mobile menu
     const toggle = document.getElementById('menuToggle');
     const nav = document.getElementById('mainNav');
     if (toggle && nav) {
@@ -904,21 +678,18 @@
       });
     }
 
-    // Scroll reveal animation (fade-on-scroll)
+    // scroll reveal
     const fadeElements = document.querySelectorAll('.fade-on-scroll');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          // optionally unobserve after reveal
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
 
     fadeElements.forEach(el => observer.observe(el));
-
-    // Also set visible on elements already in view (in case observer misses)
     window.addEventListener('load', () => {
       fadeElements.forEach(el => {
         const rect = el.getBoundingClientRect();
