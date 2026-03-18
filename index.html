@@ -6,7 +6,7 @@
   <title>Palvi Gulati · yoga · elegance</title>
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts: Inter + Playfair Display + subtle Cormorant -->
+  <!-- Google Fonts: Inter + Playfair Display + Cormorant Garamond -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -53,6 +53,20 @@
       font-family: var(--font-serif);
       font-weight: 400;
       letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 2px;
+      background: var(--raspberry);
+      margin: 0.8rem auto 0;
+    }
+    .text-center h2:after {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     h2 em, h3 em {
@@ -92,6 +106,7 @@
       position: relative;
       overflow: hidden;
       z-index: 1;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     .btn::before {
@@ -147,6 +162,8 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      backdrop-filter: blur(5px);
+      background-color: rgba(47, 15, 20, 0.95);
     }
 
     .header-inner {
@@ -164,6 +181,7 @@
       text-decoration: none;
       font-family: var(--font-elegant);
       letter-spacing: 2px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
 
     .nav-links {
@@ -180,10 +198,24 @@
       transition: color 0.3s;
       letter-spacing: 0.5px;
       font-family: var(--font-elegant);
+      position: relative;
+    }
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--raspberry);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover:after {
+      width: 100%;
     }
 
     .nav-links a:hover {
-      color: var(--raspberry);
+      color: var(--pure-white);
     }
 
     .menu-toggle {
@@ -212,7 +244,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(0, 0, 0, 0.4);
       z-index: 1;
       pointer-events: none;
     }
@@ -233,6 +265,12 @@
       text-shadow: 0 2px 15px rgba(0,0,0,0.5);
       line-height: 1.1;
       font-family: var(--font-serif);
+    }
+    .hero h2:after {
+      background: var(--pure-white);
+      width: 120px;
+      height: 3px;
+      margin-top: 1rem;
     }
 
     .hero h4 {
@@ -264,13 +302,6 @@
       animation: fadeUp 0.8s ease backwards;
     }
 
-    .grid-2 > *:first-child { animation-delay: 0.1s; }
-    .grid-2 > *:last-child { animation-delay: 0.3s; }
-    .feature-grid .feature-card:nth-child(1) { animation-delay: 0.1s; }
-    .feature-grid .feature-card:nth-child(2) { animation-delay: 0.3s; }
-    .feature-grid .feature-card:nth-child(3) { animation-delay: 0.5s; }
-    .feature-grid .feature-card:nth-child(4) { animation-delay: 0.7s; }
-
     /* kashmir white section */
     .kashmir-white {
       background-color: var(--pure-white);
@@ -279,6 +310,9 @@
     }
     .kashmir-white h2, .kashmir-white .lead, .kashmir-white p {
       color: #121212;
+    }
+    .kashmir-white h2:after {
+      background: var(--raspberry);
     }
 
     .video-block {
@@ -293,11 +327,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
     }
 
     .video-block:hover {
       transform: scale(1.02);
-      box-shadow: 0 25px 30px -8px black;
+      box-shadow: 0 30px 40px -10px black;
     }
 
     .video-placeholder-content {
@@ -333,6 +368,10 @@
       transition: transform 0.8s;
     }
 
+    .image-card:hover img {
+      transform: scale(1.05);
+    }
+
     .pricing-card {
       background: var(--card-bg);
       padding: 2.5rem;
@@ -341,6 +380,12 @@
       max-width: 550px;
       margin: 0 auto;
       transition: transform 0.4s, box-shadow 0.4s;
+      box-shadow: 0 20px 25px -10px black;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 35px -10px black;
     }
 
     .feature-grid {
@@ -356,6 +401,7 @@
       overflow: hidden;
       transition: transform 0.4s, box-shadow 0.4s;
       border: 1px solid var(--raspberry);
+      box-shadow: 0 15px 25px -8px black;
     }
 
     .feature-card:hover {
@@ -410,12 +456,13 @@
       border-radius: 2rem;
       padding: 2rem;
       border: 1px solid var(--raspberry);
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 10px 20px -5px black;
     }
 
     .review-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 25px -10px black;
+      box-shadow: 0 20px 25px -5px black;
     }
 
     .review-stars {
@@ -457,6 +504,10 @@
       border-radius: 50%;
       border: 4px solid var(--raspberry);
       box-shadow: 0 20px 30px -10px black;
+      transition: transform 0.3s;
+    }
+    .meet-image img:hover {
+      transform: scale(1.02);
     }
 
     .meet-bio h3 {
@@ -494,11 +545,13 @@
       border-radius: 1.5rem;
       overflow: hidden;
       border: 2px solid var(--raspberry);
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 10px 20px -5px black;
     }
 
     .cert-item:hover {
       transform: scale(1.03);
+      box-shadow: 0 20px 25px -5px black;
     }
 
     .cert-item img {
@@ -515,6 +568,7 @@
       padding: 4rem 2rem;
       text-align: center;
       border: 2px solid var(--raspberry);
+      box-shadow: 0 25px 30px -12px black;
     }
 
     .free-session h3 {
@@ -540,6 +594,7 @@
       border-radius: 2rem;
       margin-bottom: 1rem;
       overflow: hidden;
+      box-shadow: 0 8px 15px -5px black;
     }
     .faq-question {
       padding: 1.5rem 2rem;
@@ -600,45 +655,54 @@
       transform: translateX(-50%);
       background: var(--raspberry);
       color: white;
-      padding: 1rem 2rem;
-      border-radius: 50px;
+      padding: 1rem 2.5rem;
+      border-radius: 60px;
       font-size: 1.2rem;
       font-weight: 500;
       border: 2px solid white;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
       cursor: pointer;
       z-index: 100;
-      transition: transform 0.3s, background 0.3s;
+      transition: all 0.3s ease;
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.8rem;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(5px);
+    }
+    .fixed-book-btn i {
+      font-size: 1.4rem;
     }
     .fixed-book-btn:hover {
       background: #b03b5c;
       transform: translateX(-50%) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.6);
     }
+
     .fixed-whatsapp {
       position: fixed;
       bottom: 30px;
       right: 30px;
       background: #25D366;
       color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 50px;
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
       font-size: 1.2rem;
       border: 2px solid white;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
       z-index: 100;
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 1rem;
       text-decoration: none;
-      transition: transform 0.3s;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
     }
     .fixed-whatsapp:hover {
       transform: scale(1.05);
       background: #20b859;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.6);
     }
     .fixed-whatsapp i {
       font-size: 1.8rem;
@@ -653,7 +717,8 @@
       display: none;
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
       z-index: 200;
       justify-content: center;
       align-items: center;
@@ -669,6 +734,12 @@
       max-width: 500px;
       width: 90%;
       position: relative;
+      box-shadow: 0 30px 40px -10px black;
+      animation: modalPop 0.3s ease;
+    }
+    @keyframes modalPop {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
     }
     .modal-content h3 {
       font-size: 2rem;
@@ -683,6 +754,12 @@
       background: #3f1620;
       color: white;
       font-size: 1.1rem;
+      border: 1px solid transparent;
+      transition: border 0.2s;
+    }
+    .modal-content input:focus {
+      outline: none;
+      border-color: var(--raspberry);
     }
     .modal-content input::placeholder {
       color: #b29583;
@@ -697,11 +774,12 @@
       font-weight: 600;
       font-size: 1.2rem;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
       margin-top: 1rem;
     }
     .modal-content button:hover {
       background: #b03b5c;
+      transform: translateY(-2px);
     }
     .close-modal {
       position: absolute;
@@ -710,6 +788,7 @@
       font-size: 2rem;
       cursor: pointer;
       color: #e0cfbc;
+      transition: color 0.2s;
     }
     .close-modal:hover {
       color: var(--raspberry);
@@ -739,6 +818,7 @@
       text-decoration: none;
       margin: 0 1.2rem;
       font-size: 1rem;
+      transition: color 0.3s;
     }
 
     .footer-links a:hover {
@@ -749,10 +829,12 @@
       color: #e0cfbc;
       font-size: 1.4rem;
       margin-left: 1.2rem;
+      transition: color 0.3s, transform 0.2s;
+      display: inline-block;
     }
-
     .social-footer a:hover {
       color: var(--raspberry);
+      transform: translateY(-3px);
     }
 
     .legal-note {
@@ -833,7 +915,6 @@
         <a href="#programs">Programs</a>
         <a href="#contact">Contact Us</a>
       </nav>
-      <!-- social icons removed from header -->
     </div>
   </header>
 
@@ -867,7 +948,7 @@
 
     <!-- Specialised classes with Palvi (four programs) / Programs -->
     <section class="section" style="background-color: #3f1620;" id="programs">
-      <div class="container">
+      <div class="container text-center">
         <h2 style="text-align: center;">Specialised classes with Palvi</h2>
         <div class="feature-grid">
           <!-- Ashtanga Vinyasa Flow -->
@@ -941,7 +1022,7 @@
 
     <!-- Reviews -->
     <section class="section" style="background-color: #2f0f14;">
-      <div class="container">
+      <div class="container text-center">
         <h2 style="text-align: center;">What our students say</h2>
         <div class="reviews-grid">
           <div class="review-card"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Palvi’s classes have transformed my mornings. The perfect blend of strength and calm. So grateful to have her studio in Trikuta Nagar."</p><div class="review-author">— Riya Sharma</div><div class="review-location">Trikuta Nagar, Jammu</div></div>
@@ -966,7 +1047,7 @@
 
     <!-- Certificates -->
     <section class="section" style="background-color: #2f0f14;">
-      <div class="container">
+      <div class="container text-center">
         <h2 style="text-align: center;">Certifications</h2>
         <div class="cert-grid">
           <div class="cert-item"><img src="https://i.ibb.co/Z6vq7wDn/IMG-20260317-133424.jpg" alt="Certificate 1"></div>
@@ -987,7 +1068,7 @@
 
     <!-- FAQ -->
     <section class="section" style="background-color: #2f0f14;">
-      <div class="container">
+      <div class="container text-center">
         <h2 style="text-align: center;">Frequently Asked Questions</h2>
         <div class="faq-grid">
           <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>What should I bring to my first class?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Just bring comfortable clothing, a yoga mat if you have one, and a water bottle. We have mats available if needed.</p></div></div>
@@ -1000,7 +1081,7 @@
 
     <!-- Google Maps / Contact -->
     <section class="section" style="background-color: #3f1620;" id="contact">
-      <div class="container">
+      <div class="container text-center">
         <h2 style="text-align: center;">Find us in Trikuta Nagar</h2>
         <div class="map-container">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.699399039219!2d74.867223315177!3d32.728442280986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391e84b4c4b6b4b7%3A0x3b3b3b3b3b3b3b3b!2sTrikuta%20Nagar%2C%20Jammu%2C%20Jammu%20and%20Kashmir!5e0!3m2!1sen!2sin!4v1610000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
