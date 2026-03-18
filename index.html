@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Google Fonts: Inter + Playfair Display + Cormorant Garamond -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- AOS (Animate On Scroll) for section animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -297,11 +299,6 @@
 
     .section {
       padding: 5rem 0;
-      animation: fadeIn 1s ease;
-    }
-
-    .grid-2, .feature-grid, .pricing-card, .image-card, .video-block {
-      animation: fadeUp 0.8s ease backwards;
     }
 
     /* kashmir white section */
@@ -661,8 +658,8 @@
       transform: translateX(-50%);
       background: var(--warm-tan);
       color: white;
-      padding: 1.2rem 2rem;   /* taller (more length), narrower (less width) */
-      border-radius: 30px;      /* curved rectangle */
+      padding: 1.2rem 2rem;
+      border-radius: 30px;
       font-size: 1.2rem;
       font-weight: 500;
       border: 2px solid white;
@@ -676,7 +673,7 @@
       gap: 0.8rem;
       letter-spacing: 0.5px;
       backdrop-filter: blur(5px);
-      white-space: nowrap;      /* keep in one line */
+      white-space: nowrap;
     }
     .fixed-book-btn i {
       font-size: 1.4rem;
@@ -932,7 +929,7 @@
     </section>
 
     <!-- Kashmir Intensives (white) -->
-    <section class="kashmir-white">
+    <section class="kashmir-white" data-aos="fade-up" data-aos-duration="800">
       <div class="container grid-2">
         <div>
           <h2>Kashmir Intensives:<br>A Journey Inward</h2>
@@ -950,53 +947,53 @@
       </div>
     </section>
 
-    <!-- Specialised classes with Palvi (four programs) / Programs -->
-    <section class="section" style="background-color: var(--medium-brown);" id="programs">
+    <!-- Specialised classes with Palvi (four programs) / Programs (Learn More removed) -->
+    <section class="section" style="background-color: var(--medium-brown);" id="programs" data-aos="fade-up" data-aos-duration="800">
       <div class="container text-center">
         <h2 style="text-align: center;">Specialised classes with Palvi</h2>
         <div class="feature-grid">
           <!-- Ashtanga Vinyasa Flow -->
-          <div class="feature-card">
+          <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
             <div class="feature-img">
               <img src="https://images.unsplash.com/photo-1588286840104-8127c6c6a9b1?q=80&w=2070&auto=format&fit=crop" alt="Ashtanga Vinyasa Flow">
             </div>
             <div class="feature-content">
               <h3>Ashtanga Vinyasa Flow</h3>
               <p>Dynamic, structured sequence linking breath and movement.</p>
-              <a href="#" class="btn btn-outline">Learn More</a>
+              <!-- Learn More button removed -->
             </div>
           </div>
           <!-- Hatha Yoga -->
-          <div class="feature-card">
+          <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
             <div class="feature-img">
               <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2020&auto=format&fit=crop" alt="Hatha Yoga">
             </div>
             <div class="feature-content">
               <h3>Hatha Yoga</h3>
               <p>Gentle, foundational poses to align and calm the body.</p>
-              <a href="#" class="btn btn-outline">Learn More</a>
+              <!-- Learn More button removed -->
             </div>
           </div>
           <!-- Kids Yoga -->
-          <div class="feature-card">
+          <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
             <div class="feature-img">
               <img src="https://images.unsplash.com/photo-1524593689594-aae2f26b75ab?q=80&w=2070&auto=format&fit=crop" alt="Kids Yoga">
             </div>
             <div class="feature-content">
               <h3>Kids Yoga</h3>
               <p>Fun, engaging yoga to build strength and creativity.</p>
-              <a href="#" class="btn btn-outline">Learn More</a>
+              <!-- Learn More button removed -->
             </div>
           </div>
           <!-- Pre Natal & Post Natal Classes -->
-          <div class="feature-card">
+          <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
             <div class="feature-img">
               <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop" alt="Pre Natal and Post Natal Classes">
             </div>
             <div class="feature-content">
               <h3>Pre Natal & Post Natal</h3>
               <p>Safe, supportive practices for every stage of motherhood.</p>
-              <a href="#" class="btn btn-outline">Learn More</a>
+              <!-- Learn More button removed -->
             </div>
           </div>
         </div>
@@ -1004,11 +1001,11 @@
     </section>
 
     <!-- Monthly Membership -->
-    <section class="section" style="background-color: var(--medium-brown);">
+    <section class="section" style="background-color: var(--medium-brown);" data-aos="fade-up" data-aos-duration="800">
       <div class="container">
         <div style="max-width: 650px; margin: 0 auto;">
           <h2 style="text-align: center;">Monthly Membership</h2>
-          <div class="pricing-card" style="text-align: center;">
+          <div class="pricing-card" style="text-align: center;" data-aos="flip-left" data-aos-delay="200">
             <div class="title" style="font-size: 1.8rem; color: #f0dbc0;">Offline & Online Classes</div>
             <div class="price" style="font-size: 3rem; font-weight: 500; margin: 1rem 0 0.3rem;">₹3,500.00 <small style="font-size: 1rem; font-weight: 300; color: #dbbca0;">INR</small></div>
             <div class="period" style="color: #dbbca0; margin-bottom: 1rem;">Every month</div>
@@ -1025,22 +1022,22 @@
     </section>
 
     <!-- Reviews -->
-    <section class="section" style="background-color: var(--dark-brown-shade);">
+    <section class="section" style="background-color: var(--dark-brown-shade);" data-aos="fade-up" data-aos-duration="800">
       <div class="container text-center">
         <h2 style="text-align: center;">What our students say</h2>
         <div class="reviews-grid">
-          <div class="review-card"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Palvi’s classes have transformed my mornings. The perfect blend of strength and calm. So grateful to have her studio in Trikuta Nagar."</p><div class="review-author">— Riya Sharma</div><div class="review-location">Trikuta Nagar, Jammu</div></div>
-          <div class="review-card"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"After my pregnancy, I was looking for a safe practice. Palvi’s postnatal classes helped me regain strength gently. Highly recommend!"</p><div class="review-author">— Ankit Verma</div><div class="review-location">Gandhinagar, Jammu</div></div>
-          <div class="review-card"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"I love the flexibility of offline and online options. Palvi creates a welcoming space for everyone. My stress levels have dropped so much."</p><div class="review-author">— Neha Gupta</div><div class="review-location">Jammu City</div></div>
+          <div class="review-card" data-aos="fade-right" data-aos-delay="100"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Palvi’s classes have transformed my mornings. The perfect blend of strength and calm. So grateful to have her studio in Trikuta Nagar."</p><div class="review-author">— Riya Sharma</div><div class="review-location">Trikuta Nagar, Jammu</div></div>
+          <div class="review-card" data-aos="fade-up" data-aos-delay="200"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"After my pregnancy, I was looking for a safe practice. Palvi’s postnatal classes helped me regain strength gently. Highly recommend!"</p><div class="review-author">— Ankit Verma</div><div class="review-location">Gandhinagar, Jammu</div></div>
+          <div class="review-card" data-aos="fade-left" data-aos-delay="300"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"I love the flexibility of offline and online options. Palvi creates a welcoming space for everyone. My stress levels have dropped so much."</p><div class="review-author">— Neha Gupta</div><div class="review-location">Jammu City</div></div>
         </div>
       </div>
     </section>
 
     <!-- Meet Palvi Gulati / About Us -->
-    <section class="section" style="background-color: var(--medium-brown);" id="about">
+    <section class="section" style="background-color: var(--medium-brown);" id="about" data-aos="fade-up" data-aos-duration="800">
       <div class="container meet-grid">
-        <div class="meet-image"><img src="https://i.ibb.co/23GffPsk/IMG-20260317-191051.jpg" alt="Palvi Gulati"></div>
-        <div class="meet-bio">
+        <div class="meet-image" data-aos="fade-right" data-aos-delay="100"><img src="https://i.ibb.co/23GffPsk/IMG-20260317-191051.jpg" alt="Palvi Gulati"></div>
+        <div class="meet-bio" data-aos="fade-left" data-aos-delay="200">
           <h3>Meet Palvi Gulati</h3>
           <div class="badge">E-RYT 500 · 8+ years · Ashtanga, Prenatal & Postnatal specialist</div>
           <p>I am Palvi Gulati, a certified Ashtanga, prenatal, and postnatal yoga teacher based in Jammu. I have been running my own yoga studio for the past eight years, helping people improve their physical health, mental well-being, and overall lifestyle through yoga. I specialize in supporting women during pregnancy and postnatal recovery with safe and effective practices, while also guiding students of all levels to build strength, flexibility, and mindfulness in their daily lives. 🧘‍♀️🌿</p>
@@ -1049,20 +1046,21 @@
       </div>
     </section>
 
-    <!-- Certificates -->
-    <section class="section" style="background-color: var(--dark-brown-shade);">
+    <!-- Certificates (now with four images) -->
+    <section class="section" style="background-color: var(--dark-brown-shade);" data-aos="fade-up" data-aos-duration="800">
       <div class="container text-center">
         <h2 style="text-align: center;">Certifications</h2>
         <div class="cert-grid">
-          <div class="cert-item"><img src="https://i.ibb.co/Z6vq7wDn/IMG-20260317-133424.jpg" alt="Certificate 1"></div>
-          <div class="cert-item"><img src="https://i.ibb.co/Ldm3vC14/IMG-20260317-141447.jpg" alt="Certificate 2"></div>
-          <div class="cert-item"><img src="https://i.ibb.co/1GjTdH0F/IMG-20260317-141428.jpg" alt="Certificate 3"></div>
+          <div class="cert-item" data-aos="zoom-in" data-aos-delay="100"><img src="https://i.ibb.co/Z6vq7wDn/IMG-20260317-133424.jpg" alt="Certificate 1"></div>
+          <div class="cert-item" data-aos="zoom-in" data-aos-delay="200"><img src="https://i.ibb.co/Ldm3vC14/IMG-20260317-141447.jpg" alt="Certificate 2"></div>
+          <div class="cert-item" data-aos="zoom-in" data-aos-delay="300"><img src="https://i.ibb.co/1GjTdH0F/IMG-20260317-141428.jpg" alt="Certificate 3"></div>
+          <div class="cert-item" data-aos="zoom-in" data-aos-delay="400"><img src="https://i.ibb.co/4w5N7DKh/IMG-6222.avif" alt="Certificate 4"></div>
         </div>
       </div>
     </section>
 
     <!-- Free session (static section) -->
-    <section class="section" style="background-color: var(--medium-brown); padding-top: 2rem;">
+    <section class="section" style="background-color: var(--medium-brown); padding-top: 2rem;" data-aos="fade-up" data-aos-duration="800">
       <div class="container free-session">
         <h3>Your first session is completely free</h3>
         <p>In‑studio at Trikuta Nagar or online. No commitment.</p>
@@ -1071,23 +1069,23 @@
     </section>
 
     <!-- FAQ (compact) -->
-    <section class="section" style="background-color: var(--dark-brown-shade);">
+    <section class="section" style="background-color: var(--dark-brown-shade);" data-aos="fade-up" data-aos-duration="800">
       <div class="container text-center">
         <h2 style="text-align: center;">Frequently Asked Questions</h2>
         <div class="faq-grid">
-          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>What should I bring to my first class?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Just bring comfortable clothing, a yoga mat if you have one, and a water bottle. We have mats available if needed.</p></div></div>
-          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Are online classes live or recorded?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>All online classes are live via Zoom, so you can interact and get personalized guidance. Recordings are available for members.</p></div></div>
-          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Do I need prior yoga experience?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Not at all! My classes welcome all levels, from beginners to advanced practitioners. I offer modifications for every pose.</p></div></div>
-          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Where are you located in Trikuta Nagar?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>My studio is near the main market, above the post office. Exact address will be shared upon booking your first session.</p></div></div>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="100"><div class="faq-question" onclick="toggleFaq(this)"><span>What should I bring to my first class?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Just bring comfortable clothing, a yoga mat if you have one, and a water bottle. We have mats available if needed.</p></div></div>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="200"><div class="faq-question" onclick="toggleFaq(this)"><span>Are online classes live or recorded?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>All online classes are live via Zoom, so you can interact and get personalized guidance. Recordings are available for members.</p></div></div>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="300"><div class="faq-question" onclick="toggleFaq(this)"><span>Do I need prior yoga experience?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Not at all! My classes welcome all levels, from beginners to advanced practitioners. I offer modifications for every pose.</p></div></div>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="400"><div class="faq-question" onclick="toggleFaq(this)"><span>Where are you located in Trikuta Nagar?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>My studio is near the main market, above the post office. Exact address will be shared upon booking your first session.</p></div></div>
         </div>
       </div>
     </section>
 
     <!-- Google Maps / Contact -->
-    <section class="section" style="background-color: var(--medium-brown);" id="contact">
+    <section class="section" style="background-color: var(--medium-brown);" id="contact" data-aos="fade-up" data-aos-duration="800">
       <div class="container text-center">
         <h2 style="text-align: center;">Find us in Trikuta Nagar</h2>
-        <div class="map-container">
+        <div class="map-container" data-aos="zoom-in" data-aos-delay="200">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.699399039219!2d74.867223315177!3d32.728442280986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391e84b4c4b6b4b7%3A0x3b3b3b3b3b3b3b3b!2sTrikuta%20Nagar%2C%20Jammu%2C%20Jammu%20and%20Kashmir!5e0!3m2!1sen!2sin!4v1610000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
@@ -1147,7 +1145,17 @@
     </div>
   </footer>
 
+  <!-- AOS initialization script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 120,
+      easing: 'ease-in-out'
+    });
+
     // Mobile menu toggle
     const toggle = document.getElementById('menuToggle');
     const nav = document.getElementById('mainNav');
