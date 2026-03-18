@@ -212,7 +212,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.35); /* gentle overlay for text readability */
+      background: rgba(0, 0, 0, 0.35);
       z-index: 1;
       pointer-events: none;
     }
@@ -245,7 +245,7 @@
       letter-spacing: 2px;
     }
 
-    /* ----- ANIMATIONS ----- */
+    /* ----- ANIMATIONS (base) ----- */
     @keyframes fadeUp {
       0% { opacity: 0; transform: translateY(40px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -261,15 +261,17 @@
       animation: fadeIn 1s ease;
     }
 
-    .grid-2, .feature-grid, .pricing-card, .image-card, .video-block {
-      animation: fadeUp 0.8s ease backwards;
+    /* scroll reveal animation (added) */
+    .fade-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    /* staggered delays */
-    .grid-2 > *:first-child { animation-delay: 0.1s; }
-    .grid-2 > *:last-child { animation-delay: 0.3s; }
-    .feature-grid .feature-card:nth-child(1) { animation-delay: 0.1s; }
-    .feature-grid .feature-card:nth-child(2) { animation-delay: 0.3s; }
+    .fade-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* ----- BALI WHITE SECTION ----- */
     .bali-white {
@@ -300,7 +302,6 @@
     .section-raspberry {
       background-color: var(--raspberry) !important;
     }
-    /* cards keep their own background for contrast */
     .section-raspberry .feature-card {
       background: #2f0f14; 
     }
@@ -616,6 +617,39 @@
       text-align: center;
     }
 
+    /* NEW: membership section with background image (above Vogue) */
+    .membership-with-bg {
+      position: relative;
+      isolation: isolate;
+      background-color: transparent !important; /* remove solid bg, we use pseudo */
+      z-index: 1;
+    }
+
+    .membership-with-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://i.ibb.co/HpKLdfJw/IMG-3826.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+      filter: brightness(0.5) saturate(1.2);
+      z-index: -2;
+    }
+
+    .membership-with-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+      z-index: -1;
+    }
+
+    .membership-with-bg .container {
+      position: relative;
+      z-index: 2;
+    }
+
     /* responsiveness */
     @media (max-width: 900px) {
       .menu-toggle {
@@ -698,16 +732,15 @@
 
   <main>
     <!-- HERO (full screen with user image) -->
-    <section class="hero">
+    <section class="hero fade-on-scroll" id="heroSection">
       <div class="container hero-content">
         <h2>Palvi Gulati</h2>
         <h4>The achievable can be achieved</h4>
-        <!-- no inner image, background is the provided image -->
       </div>
     </section>
 
     <!-- BALI INTENSIVES white background, black text, group image -->
-    <section class="bali-white">
+    <section class="bali-white fade-on-scroll">
       <div class="container grid-2">
         <div>
           <h2>Bali Intensives:<br>A Journey Inward</h2>
@@ -721,7 +754,7 @@
     </section>
 
     <!-- MONTHLY MEMBERSHIP with rupee, #461b22 bg -->
-    <section class="section membership-deep" style="background-color: #461b22;">
+    <section class="section membership-deep fade-on-scroll" style="background-color: #461b22;">
       <div class="container">
         <h2 style="text-align: center; color: white;">Monthly Membership</h2>
         <div class="pricing-card">
@@ -740,7 +773,7 @@
     </section>
 
     <!-- ONLINE COURSES & PRIVATE SESSIONS – background #860930, with provided images -->
-    <section class="section section-raspberry" style="background-color: #860930;">
+    <section class="section section-raspberry fade-on-scroll" style="background-color: #860930;">
       <div class="container">
         <div class="feature-grid">
           <!-- online courses card -->
@@ -769,13 +802,13 @@
       </div>
     </section>
 
-    <!-- SECOND MEMBERSHIP + VIDEO (unchanged, colors adapt) -->
-    <section class="section section-brown" style="background-color: #3f1620;">
+    <!-- SECOND MEMBERSHIP + VIDEO – now with background image (IMG-3826.jpg) behind, directly above Vogue -->
+    <section class="section membership-with-bg fade-on-scroll" style="background-color: transparent;"> <!-- bg removed, handled by pseudo -->
       <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
           <div>
             <h2>Monthly Membership</h2>
-            <div style="background: #2f0f14; padding: 2rem; border-radius: 2.5rem; border:1px solid var(--raspberry);">
+            <div style="background: #2f0f14; padding: 2rem; border-radius: 2.5rem; border:1px solid var(--raspberry); backdrop-filter: blur(2px); background: rgba(47,15,20,0.85);">
               <div style="font-size: 1.8rem;">ALL my recordings + classes + online courses</div>
               <div style="font-size: 2.8rem; margin:1rem 0;">₹5,000.00</div>
               <div style="margin-bottom: 1rem;">Every month</div>
@@ -796,8 +829,8 @@
       </div>
     </section>
 
-    <!-- PRESS / GALLERY SNIPPET (unchanged) -->
-    <section class="section section-dark" style="padding: 3rem 0; background-color: #2f0f14;">
+    <!-- PRESS / GALLERY SNIPPET (Vogue – "Vague beauty awards") -->
+    <section class="section section-dark fade-on-scroll" style="padding: 3rem 0; background-color: #2f0f14;">
       <div class="container" style="text-align: center;">
         <img src="https://images.squarespace-cdn.com/content/v1/5f3358474265747ccb753359/1597202672778-V40ZRSON9BHCL8N278UW/Vogue-Beauty-Awards-2018_deepika_mehta-600px.png" alt="Vogue feature" style="max-width: 280px; border-radius: 20px; opacity: 0.95; box-shadow: 0 15px 25px -5px black; border:2px solid var(--raspberry);">
         <div style="margin-top: 2rem;">
@@ -807,7 +840,7 @@
     </section>
 
     <!-- QUOTE SECTION -->
-    <section class="quote-section">
+    <section class="quote-section fade-on-scroll">
       <div class="container quote-block">
         <div class="quote-text">“You asked me what I came into the world to do… I came into the world to live out loud.”</div>
         <div class="quote-author">—Emile Zola</div>
@@ -815,7 +848,7 @@
     </section>
 
     <!-- NEWSLETTER -->
-    <section class="section section-brown" style="background-color: #3f1620;">
+    <section class="section section-brown fade-on-scroll" style="background-color: #3f1620;">
       <div class="container newsletter">
         <h3>Newsletter Sign-up</h3>
         <p>Sign up with your email address to receive news and updates.</p>
@@ -854,6 +887,7 @@
   </footer>
 
   <script>
+    // Mobile menu toggle
     const toggle = document.getElementById('menuToggle');
     const nav = document.getElementById('mainNav');
     if (toggle && nav) {
@@ -869,6 +903,31 @@
         }
       });
     }
+
+    // Scroll reveal animation (fade-on-scroll)
+    const fadeElements = document.querySelectorAll('.fade-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // optionally unobserve after reveal
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Also set visible on elements already in view (in case observer misses)
+    window.addEventListener('load', () => {
+      fadeElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+          el.classList.add('visible');
+          observer.unobserve(el);
+        }
+      });
+    });
   </script>
 </body>
 </html>
