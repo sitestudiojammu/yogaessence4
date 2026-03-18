@@ -6,7 +6,7 @@
   <title>Palvi Gulati · yoga · elegance</title>
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts: Inter + Playfair Display + subtle Cormorant for extra elegance -->
+  <!-- Google Fonts: Inter + Playfair Display + subtle Cormorant -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -17,7 +17,7 @@
 
     :root {
       --deep-burgundy: #461b22;
-      --raspberry: #860930;           /* primary accent and now section bg */
+      --raspberry: #860930;
       --pure-white: #ffffff;
       --dark-burgundy-shade: #2f0f14;
       --medium-burgundy: #3f1620;
@@ -42,7 +42,6 @@
       padding: 0 1.5rem;
     }
 
-    /* ----- TYPOGRAPHY IMPROVEMENTS ----- */
     h1, h2, h3 {
       font-weight: 300;
       letter-spacing: -0.02em;
@@ -75,7 +74,6 @@
       font-size: 1.1rem;
     }
 
-    /* ----- BUTTONS (enhanced) ----- */
     .btn {
       display: inline-block;
       background: transparent;
@@ -128,7 +126,20 @@
       color: var(--pure-white);
     }
 
-    /* ----- HEADER ----- */
+    .btn-light {
+      background: var(--raspberry);
+      border: none;
+      padding: 1rem 3rem;
+      font-size: 1.2rem;
+    }
+
+    .btn-light:hover {
+      background: #b03b5c;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
+    }
+
+    /* header */
     .site-header {
       background-color: var(--dark-burgundy-shade);
       border-bottom: 4px solid var(--raspberry);
@@ -195,7 +206,7 @@
       color: var(--raspberry);
     }
 
-    /* ----- HERO (full screen with user image) ----- */
+    /* hero */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -204,7 +215,6 @@
       padding: 6rem 0 4rem;
       text-align: center;
       border-bottom: 2px solid var(--raspberry);
-      /* 🔁 REPLACED TOP IMAGE HERE */
       background: url('https://i.ibb.co/23GffPsk/IMG-20260317-191051.jpg') center/cover no-repeat;
       isolation: isolate;
     }
@@ -213,7 +223,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.35); /* gentle overlay for text readability */
+      background: rgba(0, 0, 0, 0.35);
       z-index: 1;
       pointer-events: none;
     }
@@ -246,7 +256,6 @@
       letter-spacing: 2px;
     }
 
-    /* ----- ANIMATIONS ----- */
     @keyframes fadeUp {
       0% { opacity: 0; transform: translateY(40px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -266,47 +275,55 @@
       animation: fadeUp 0.8s ease backwards;
     }
 
-    /* staggered delays */
     .grid-2 > *:first-child { animation-delay: 0.1s; }
     .grid-2 > *:last-child { animation-delay: 0.3s; }
     .feature-grid .feature-card:nth-child(1) { animation-delay: 0.1s; }
     .feature-grid .feature-card:nth-child(2) { animation-delay: 0.3s; }
+    .feature-grid .feature-card:nth-child(3) { animation-delay: 0.5s; }
+    .feature-grid .feature-card:nth-child(4) { animation-delay: 0.7s; }
 
-    /* ----- BALI WHITE SECTION ----- */
-    .bali-white {
+    /* kashmir white section */
+    .kashmir-white {
       background-color: var(--pure-white);
       color: #121212;
       padding: 5rem 0;
     }
-    .bali-white h2, .bali-white .lead, .bali-white p {
+    .kashmir-white h2, .kashmir-white .lead, .kashmir-white p {
       color: #121212;
     }
-    .bali-white .btn {
-      display: none;
-    }
 
-    /* ----- MEMBERSHIP DEEP ----- */
-    .membership-deep {
-      background-color: var(--deep-burgundy) !important;
-    }
-    .membership-deep * {
-      color: white !important;
-    }
-    .membership-deep .pricing-card {
+    .video-block {
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid var(--raspberry);
+      transition: transform 0.4s, box-shadow 0.4s;
       background: #2f0f14;
-      border-color: var(--raspberry);
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* ----- ONLINE COURSES SECTION (background #860930) ----- */
-    .section-raspberry {
-      background-color: var(--raspberry) !important;
-    }
-    /* cards keep their own background for contrast */
-    .section-raspberry .feature-card {
-      background: #2f0f14; 
+    .video-block:hover {
+      transform: scale(1.02);
+      box-shadow: 0 25px 30px -8px black;
     }
 
-    /* shared styles */
+    .video-placeholder-content {
+      text-align: center;
+      color: #ecd9c0;
+      font-family: var(--font-elegant);
+      padding: 2rem;
+    }
+
+    .video-placeholder-content i {
+      font-size: 4rem;
+      color: var(--raspberry);
+      margin-bottom: 1rem;
+    }
+
     .image-card {
       border-radius: 2rem;
       overflow: hidden;
@@ -327,10 +344,6 @@
       transition: transform 0.8s;
     }
 
-    .image-card:hover img {
-      transform: scale(1.05);
-    }
-
     .pricing-card {
       background: var(--card-bg);
       padding: 2.5rem;
@@ -341,53 +354,9 @@
       transition: transform 0.4s, box-shadow 0.4s;
     }
 
-    .pricing-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 25px 30px -10px #2f0f14;
-    }
-
-    .pricing-card .title {
-      font-size: 1.8rem;
-      color: #f0dbc0;
-    }
-
-    .price {
-      font-size: 3rem;
-      font-weight: 500;
-      margin: 1rem 0 0.3rem;
-    }
-
-    .price small {
-      font-size: 1rem;
-      font-weight: 300;
-      color: #dbbca0;
-    }
-
-    .period {
-      color: #dbbca0;
-      margin-bottom: 1rem;
-    }
-
-    .benefits {
-      list-style: none;
-      margin: 2rem 0;
-    }
-
-    .benefits li {
-      padding: 0.7rem 0;
-      border-bottom: 1px solid var(--raspberry);
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .benefits li i {
-      color: var(--raspberry);
-      width: 1.5rem;
-    }
-
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2.5rem;
       margin-top: 2rem;
     }
@@ -406,7 +375,7 @@
     }
 
     .feature-img {
-      height: 260px;
+      height: 220px;
       overflow: hidden;
     }
 
@@ -422,11 +391,11 @@
     }
 
     .feature-content {
-      padding: 2rem;
+      padding: 2rem 1.5rem;
     }
 
     .feature-content h3 {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       font-weight: 300;
       margin-bottom: 0.8rem;
       color: #ecd9c0;
@@ -436,137 +405,136 @@
     .feature-content p {
       color: #b7a792;
       margin-bottom: 1.8rem;
+      font-size: 1rem;
     }
 
-    .video-block {
-      position: relative;
+    /* reviews grid */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .review-card {
+      background: var(--card-bg);
       border-radius: 2rem;
-      overflow: hidden;
-      cursor: pointer;
-      border: 2px solid var(--raspberry);
-      transition: transform 0.4s, box-shadow 0.4s;
+      padding: 2rem;
+      border: 1px solid var(--raspberry);
+      transition: transform 0.3s;
     }
 
-    .video-block:hover {
-      transform: scale(1.02);
-      box-shadow: 0 25px 30px -8px black;
+    .review-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -10px black;
     }
 
-    .video-thumb {
-      width: 100%;
-      display: block;
+    .review-stars {
+      color: #ffb347;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
     }
 
-    .play-btn {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      display: flex;
+    .review-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      color: #ecd9c0;
+    }
+
+    .review-author {
+      font-weight: 400;
+      color: var(--raspberry);
+      font-family: var(--font-elegant);
+      font-size: 1.2rem;
+    }
+
+    .review-location {
+      font-size: 0.9rem;
+      color: #b7a792;
+    }
+
+    /* meet palvi */
+    .meet-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
       align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
+    }
+
+    .meet-image img {
+      width: 100%;
+      border-radius: 2rem;
       border: 2px solid var(--raspberry);
-      transition: 0.3s;
     }
 
-    .play-btn:hover {
-      background: var(--raspberry);
-      color: #000;
-      transform: translate(-50%, -50%) scale(1.1);
-    }
-
-    .quote-section {
-      background: linear-gradient(rgba(70, 27, 34, 0.8), rgba(70, 27, 34, 0.8)), 
-                  url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2022&auto=format&fit=crop') center/cover;
-      min-height: 60vh;
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .quote-block {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 4rem;
-    }
-
-    .quote-text {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 300;
-      line-height: 1.4;
+    .meet-bio h3 {
+      font-size: 2rem;
       font-family: var(--font-serif);
-      color: var(--pure-white);
+      margin-bottom: 1rem;
+    }
+
+    .meet-bio .badge {
+      color: #e0bca5;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .meet-bio p {
+      margin-bottom: 1.5rem;
+    }
+
+    .signature {
+      font-family: var(--font-elegant);
+      font-size: 1.5rem;
+      color: var(--raspberry);
       font-style: italic;
     }
 
-    .quote-author {
-      margin-top: 1.5rem;
-      color: #e0bca5;
-      font-size: 1.4rem;
-      font-family: var(--font-elegant);
+    /* certificate grid */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
-    .newsletter {
-      background: var(--dark-burgundy-shade);
+    .cert-item {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      border: 2px solid var(--raspberry);
+      transition: transform 0.3s;
+    }
+
+    .cert-item:hover {
+      transform: scale(1.03);
+    }
+
+    .cert-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* free session */
+    .free-session {
+      background: linear-gradient(145deg, #2f0f14, #3f1620);
       border-radius: 4rem;
-      padding: 3rem 2rem;
+      padding: 4rem 2rem;
       text-align: center;
-      border: 1px solid var(--raspberry);
+      border: 2px solid var(--raspberry);
     }
 
-    .newsletter h3 {
-      font-size: 2.5rem;
-      font-weight: 300;
-      color: var(--pure-white);
+    .free-session h3 {
+      font-size: 2.8rem;
       font-family: var(--font-serif);
+      margin-bottom: 1rem;
     }
 
-    .newsletter p {
-      margin: 1rem 0 2rem;
+    .free-session p {
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
       color: #d4bcac;
-    }
-
-    .newsletter-form {
-      display: flex;
-      max-width: 600px;
-      margin: 0 auto;
-      gap: 0.8rem;
-    }
-
-    .newsletter-form input {
-      flex: 1;
-      padding: 1.2rem 1.8rem;
-      border: none;
-      border-radius: 3rem;
-      background: #3f1620;
-      color: var(--pure-white);
-      font-size: 1.1rem;
-    }
-
-    .newsletter-form input::placeholder {
-      color: #b29583;
-    }
-
-    .newsletter-form button {
-      padding: 1.2rem 2.5rem;
-      border-radius: 3rem;
-      background: var(--raspberry);
-      border: none;
-      color: var(--pure-white);
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 1.1rem;
-    }
-
-    .newsletter-form button:hover {
-      background: #b03b5c;
-      transform: translateY(-2px);
     }
 
     .site-footer {
@@ -617,7 +585,6 @@
       text-align: center;
     }
 
-    /* responsiveness */
     @media (max-width: 900px) {
       .menu-toggle {
         display: block;
@@ -652,19 +619,14 @@
         gap: 2rem;
       }
 
+      .meet-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
       .footer-inner {
         flex-direction: column;
         text-align: center;
-      }
-
-      .newsletter-form {
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .pricing-card {
-        padding: 1.8rem;
       }
     }
   </style>
@@ -672,22 +634,11 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <div class="logo">
-        <a href="/">Palvi Gulati</a>
-      </div>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-        <i class="fas fa-bars"></i>
-      </button>
-
+      <div class="logo"><a href="/">Palvi Gulati</a></div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
       <nav class="nav-links" id="mainNav">
-        <a href="#">Home</a>
-        <a href="#">Bio</a>
-        <a href="#">Gallery</a>
-        <a href="#">Programs</a>
-        <a href="#">Contact Us</a>
+        <a href="#">Home</a><a href="#">Bio</a><a href="#">Gallery</a><a href="#">Programs</a><a href="#">Contact Us</a>
       </nav>
-
       <div class="social-header">
         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -698,137 +649,178 @@
   </header>
 
   <main>
-    <!-- HERO (full screen with user image) – background replaced as requested -->
+    <!-- Hero -->
     <section class="hero">
       <div class="container hero-content">
         <h2>Palvi Gulati</h2>
         <h4>The achievable can be achieved</h4>
-        <!-- no inner image, background is the provided image -->
       </div>
     </section>
 
-    <!-- BALI INTENSIVES white background, black text, group image -->
-    <section class="bali-white">
+    <!-- Kashmir Intensives (white) -->
+    <section class="kashmir-white">
       <div class="container grid-2">
         <div>
-          <h2>Bali Intensives:<br>A Journey Inward</h2>
+          <h2>Kashmir Intensives:<br>A Journey Inward</h2>
           <p class="lead"><strong>Practice with presence. Transform with intention.</strong></p>
-          <p>Join me and Mark in Bali for a powerful yoga immersion. Each Intensive blends Mysore-style mornings, afternoon workshops, and the healing energy of nature. This is more than practice—it’s a space to reconnect with who you truly are.</p>
+          <p>Join me in the breathtaking valley of Kashmir for a powerful yoga immersion. Each Intensive blends Mysore-style mornings, afternoon workshops, and the healing energy of the Himalayas. This is more than practice—it’s a space to reconnect with who you truly are.</p>
         </div>
-        <div class="image-card">
-          <img src="https://images.unsplash.com/photo-1524863479829-916d8e77f114?q=80&w=2069&auto=format&fit=crop" alt="Happy group yoga" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <!-- MONTHLY MEMBERSHIP with rupee, #461b22 bg -->
-    <section class="section membership-deep" style="background-color: #461b22;">
-      <div class="container">
-        <h2 style="text-align: center; color: white;">Monthly Membership</h2>
-        <div class="pricing-card">
-          <div class="title">ALL my recordings + classes + online courses</div>
-          <div class="price">₹5,000.00 <small>INR</small></div>
-          <div class="period">Every month</div>
-          <p style="color:#bfaa92;">Opening price of 5000 INR</p>
-          <ul class="benefits">
-            <li><i class="fas fa-check"></i> Weekly classes added</li>
-            <li><i class="fas fa-check"></i> Recordings + classes + online courses</li>
-            <li><i class="fas fa-check"></i> 24/7 access to the private membership dashboards</li>
-          </ul>
-          <a href="#" class="btn btn-primary">Subscribe Now</a>
+        <!-- Wistia placeholder -->
+        <div class="video-block" id="wistia-placeholder">
+          <div class="video-placeholder-content">
+            <i class="fas fa-video"></i>
+            <p>Wistia video will be embedded here</p>
+            <small>(Replace with your embed code)</small>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ONLINE COURSES & PRIVATE SESSIONS – background #860930, with provided images -->
-    <section class="section section-raspberry" style="background-color: #860930;">
+    <!-- Specialised classes with Palvi (four programs) -->
+    <section class="section" style="background-color: #3f1620;">
       <div class="container">
+        <h2 style="text-align: center;">Specialised classes with Palvi</h2>
         <div class="feature-grid">
-          <!-- online courses card -->
+          <!-- Ashtanga Vinyasa Flow -->
           <div class="feature-card">
             <div class="feature-img">
-              <img src="https://i.ibb.co/23GffPsk/IMG-20260317-191051.jpg" alt="Online course">
+              <img src="https://images.unsplash.com/photo-1588286840104-8127c6c6a9b1?q=80&w=2070&auto=format&fit=crop" alt="Ashtanga Vinyasa Flow">
             </div>
             <div class="feature-content">
-              <h3><em>New</em> Online Courses</h3>
-              <p>Practice yoga from home with Palvi Gulati.</p>
-              <a href="#" class="btn btn-outline">Discover Bundles</a>
+              <h3>Ashtanga Vinyasa Flow</h3>
+              <p>Dynamic, structured sequence linking breath and movement.</p>
+              <a href="#" class="btn btn-outline">Learn More</a>
             </div>
           </div>
-          <!-- private sessions card -->
+          <!-- Hatha Yoga -->
           <div class="feature-card">
             <div class="feature-img">
-              <img src="https://i.ibb.co/KzcK0Lky/Untitled-design-20260317-143454-0000.png" alt="Private session">
+              <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2020&auto=format&fit=crop" alt="Hatha Yoga">
             </div>
             <div class="feature-content">
-              <h3>Private Sessions</h3>
-              <p>Book your private session with Palvi Gulati.</p>
-              <a href="#" class="btn btn-outline">Book now</a>
+              <h3>Hatha Yoga</h3>
+              <p>Gentle, foundational poses to align and calm the body.</p>
+              <a href="#" class="btn btn-outline">Learn More</a>
+            </div>
+          </div>
+          <!-- Kids Yoga -->
+          <div class="feature-card">
+            <div class="feature-img">
+              <img src="https://images.unsplash.com/photo-1524593689594-aae2f26b75ab?q=80&w=2070&auto=format&fit=crop" alt="Kids Yoga">
+            </div>
+            <div class="feature-content">
+              <h3>Kids Yoga</h3>
+              <p>Fun, engaging yoga to build strength and creativity.</p>
+              <a href="#" class="btn btn-outline">Learn More</a>
+            </div>
+          </div>
+          <!-- Pre Natal & Post Natal Classes -->
+          <div class="feature-card">
+            <div class="feature-img">
+              <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop" alt="Pre Natal and Post Natal Classes">
+            </div>
+            <div class="feature-content">
+              <h3>Pre Natal & Post Natal</h3>
+              <p>Safe, supportive practices for every stage of motherhood.</p>
+              <a href="#" class="btn btn-outline">Learn More</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECOND MEMBERSHIP + VIDEO (unchanged, colors adapt) -->
-    <section class="section section-brown" style="background-color: #3f1620;">
+    <!-- Monthly Membership (updated) -->
+    <section class="section" style="background-color: #3f1620;">
       <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-          <div>
-            <h2>Monthly Membership</h2>
-            <div style="background: #2f0f14; padding: 2rem; border-radius: 2.5rem; border:1px solid var(--raspberry);">
-              <div style="font-size: 1.8rem;">ALL my recordings + classes + online courses</div>
-              <div style="font-size: 2.8rem; margin:1rem 0;">₹5,000.00</div>
-              <div style="margin-bottom: 1rem;">Every month</div>
-              <p><em>Opening price of 5000 INR</em></p>
-              <ul style="list-style: none; margin: 2rem 0;">
-                <li><i class="fas fa-check" style="color:var(--raspberry); margin-right:0.5rem;"></i> Weekly classes added</li>
-                <li><i class="fas fa-check" style="color:var(--raspberry); margin-right:0.5rem;"></i> Recordings + classes + online courses</li>
-                <li><i class="fas fa-check" style="color:var(--raspberry); margin-right:0.5rem;"></i> 24/7 access</li>
-              </ul>
-              <a href="#" class="btn btn-primary">Subscribe Now</a>
+        <div style="max-width: 650px; margin: 0 auto;">
+          <h2 style="text-align: center;">Monthly Membership</h2>
+          <div class="pricing-card" style="text-align: center;">
+            <div class="title" style="font-size: 1.8rem; color: #f0dbc0;">Offline & Online Classes</div>
+            <div class="price" style="font-size: 3rem; font-weight: 500; margin: 1rem 0 0.3rem;">₹3,500.00 <small style="font-size: 1rem; font-weight: 300; color: #dbbca0;">INR</small></div>
+            <div class="period" style="color: #dbbca0; margin-bottom: 1rem;">Every month</div>
+            <p style="color:#bfaa92; margin-bottom: 2rem;">Access to all weekly offline & online classes with Palvi</p>
+            <ul class="benefits" style="list-style: none; margin: 2rem 0; text-align: left; display: inline-block;">
+              <li style="padding: 0.7rem 0; border-bottom: 1px solid var(--raspberry); display: flex; gap: 0.5rem;"><i class="fas fa-check" style="color: var(--raspberry); width: 1.5rem;"></i> Weekly in‑studio sessions</li>
+              <li style="padding: 0.7rem 0; border-bottom: 1px solid var(--raspberry); display: flex; gap: 0.5rem;"><i class="fas fa-check" style="color: var(--raspberry); width: 1.5rem;"></i> Live online classes via Zoom</li>
+              <li style="padding: 0.7rem 0; border-bottom: 1px solid var(--raspberry); display: flex; gap: 0.5rem;"><i class="fas fa-check" style="color: var(--raspberry); width: 1.5rem;"></i> Flexible attendance – offline or online</li>
+            </ul>
+            <a href="#" class="btn btn-primary">Subscribe Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Reviews (What our students say) -->
+    <section class="section" style="background-color: #2f0f14;">
+      <div class="container">
+        <h2 style="text-align: center;">What our students say</h2>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
+            <p class="review-text">"Palvi’s classes have transformed my mornings. The perfect blend of strength and calm. So grateful to have her studio in Trikuta Nagar."</p>
+            <div class="review-author">— Riya Sharma</div>
+            <div class="review-location">Trikuta Nagar, Jammu</div>
           </div>
-          <div class="video-block" onclick="alert('Video preview would play here.')">
-            <img class="video-thumb" src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?q=80&w=2070&auto=format&fit=crop" alt="Yoga video preview">
-            <div class="play-btn" aria-label="Play"><i class="fas fa-play"></i></div>
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="review-text">"After my pregnancy, I was looking for a safe practice. Palvi’s postnatal classes helped me regain strength gently. Highly recommend!"</p>
+            <div class="review-author">— Ankit Verma</div>
+            <div class="review-location">Gandhinagar, Jammu</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="review-text">"I love the flexibility of offline and online options. Palvi creates a welcoming space for everyone. My stress levels have dropped so much."</p>
+            <div class="review-author">— Neha Gupta</div>
+            <div class="review-location">Jammu City</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PRESS / GALLERY SNIPPET (unchanged) -->
-    <section class="section section-dark" style="padding: 3rem 0; background-color: #2f0f14;">
-      <div class="container" style="text-align: center;">
-        <img src="https://images.squarespace-cdn.com/content/v1/5f3358474265747ccb753359/1597202672778-V40ZRSON9BHCL8N278UW/Vogue-Beauty-Awards-2018_deepika_mehta-600px.png" alt="Vogue feature" style="max-width: 280px; border-radius: 20px; opacity: 0.95; box-shadow: 0 15px 25px -5px black; border:2px solid var(--raspberry);">
-        <div style="margin-top: 2rem;">
-          <a href="#" class="btn btn-outline">Featured Media</a>
+    <!-- NEW SECTION: Meet Palvi Gulati -->
+    <section class="section" style="background-color: #3f1620;">
+      <div class="container meet-grid">
+        <div class="meet-image">
+          <!-- elegant placeholder image for Palvi (free unsplash) -->
+          <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070&auto=format&fit=crop" alt="Palvi Gulati">
+        </div>
+        <div class="meet-bio">
+          <h3>Meet Palvi Gulati</h3>
+          <div class="badge">E-RYT 500 · 8+ years · Ashtanga, Prenatal & Postnatal specialist</div>
+          <p>I am Palvi Gulati, a certified Ashtanga, prenatal, and postnatal yoga teacher based in Jammu. I have been running my own yoga studio for the past eight years, helping people improve their physical health, mental well-being, and overall lifestyle through yoga. I specialize in supporting women during pregnancy and postnatal recovery with safe and effective practices, while also guiding students of all levels to build strength, flexibility, and mindfulness in their daily lives. 🧘‍♀️🌿</p>
+          <p class="signature">"Yoga is for every body and every age — come as you are."</p>
         </div>
       </div>
     </section>
 
-    <!-- QUOTE SECTION -->
-    <section class="quote-section">
-      <div class="container quote-block">
-        <div class="quote-text">“You asked me what I came into the world to do… I came into the world to live out loud.”</div>
-        <div class="quote-author">—Emile Zola</div>
+    <!-- NEW SECTION: Certificates -->
+    <section class="section" style="background-color: #2f0f14;">
+      <div class="container">
+        <h2 style="text-align: center;">Certifications</h2>
+        <div class="cert-grid">
+          <div class="cert-item"><img src="https://i.ibb.co/Z6vq7wDn/IMG-20260317-133424.jpg" alt="Certificate 1"></div>
+          <div class="cert-item"><img src="https://i.ibb.co/Ldm3vC14/IMG-20260317-141447.jpg" alt="Certificate 2"></div>
+          <div class="cert-item"><img src="https://i.ibb.co/1GjTdH0F/IMG-20260317-141428.jpg" alt="Certificate 3"></div>
+        </div>
       </div>
     </section>
 
-    <!-- NEWSLETTER -->
-    <section class="section section-brown" style="background-color: #3f1620;">
-      <div class="container newsletter">
-        <h3>Newsletter Sign-up</h3>
-        <p>Sign up with your email address to receive news and updates.</p>
-        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for signing up!');">
-          <input type="email" placeholder="Email Address" required>
-          <button type="submit">Sign Up</button>
-        </form>
-        <p style="font-size: 0.8rem; margin-top: 2rem; opacity: 0.8;">We respect your privacy. Unsubscribe anytime.</p>
+    <!-- NEW SECTION: Free session -->
+    <section class="section" style="background-color: #3f1620; padding-top: 2rem;">
+      <div class="container free-session">
+        <h3>Your first session is completely free</h3>
+        <p>In‑studio at Trikuta Nagar or online. No commitment.</p>
+        <a href="#" class="btn btn-light">Claim Your Free Session →</a>
       </div>
     </section>
 
-    <!-- LEGAL DISCLAIMER -->
+    <!-- Legal note (kept from original) -->
     <div class="legal-note">
       <div class="container">
         <p><strong>Terms & conditions, Privacy, Refunds:</strong> No cancellations or refunds. Use of this site subject to laws of India. Updated November 2024.</p>
@@ -836,15 +828,11 @@
     </div>
   </main>
 
+  <!-- Footer (restored) -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-copy">© PALVI GULATI 2025</div>
-      <div class="footer-links">
-        <a href="#">Home</a>
-        <a href="#">Press</a>
-        <a href="#">Gallery</a>
-        <a href="#">Contact</a>
-      </div>
+      <div class="footer-links"><a href="#">Home</a><a href="#">Press</a><a href="#">Gallery</a><a href="#">Contact</a></div>
       <div class="social-footer">
         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
