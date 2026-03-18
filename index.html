@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palvi Gulati · yoga · elegance</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter + Playfair Display + subtle Cormorant for extra elegance -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --deep-burgundy: #461b22;
+      --raspberry: #860930;           /* primary accent and now section bg */
+      --pure-white: #ffffff;
+      --dark-burgundy-shade: #2f0f14;
+      --medium-burgundy: #3f1620;
+      --card-bg: #2f0f14;
+      --text-offwhite: #f5f0eb;
+      --font-serif: 'Playfair Display', serif;
+      --font-elegant: 'Cormorant Garamond', serif;
+      --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--deep-burgundy);
+      color: var(--text-offwhite);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ----- TYPOGRAPHY IMPROVEMENTS ----- */
+    h1, h2, h3 {
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      margin-bottom: 1.5rem;
+      font-family: var(--font-serif);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    h2 em, h3 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--raspberry);
+    }
+
+    .lead {
+      font-size: 1.3rem;
+      margin-bottom: 1.8rem;
+      font-weight: 300;
+      font-family: var(--font-elegant);
+      letter-spacing: 0.3px;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 1.1rem;
+    }
+
+    /* ----- BUTTONS (enhanced) ----- */
+    .btn {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid var(--raspberry);
+      color: var(--pure-white);
+      padding: 0.9rem 2.8rem;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      border-radius: 3rem;
+      transition: var(--transition);
+      cursor: pointer;
+      text-align: center;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--raspberry);
+      transition: left 0.4s;
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      left: 0;
+    }
+
+    .btn-primary {
+      background: var(--raspberry);
+      color: var(--pure-white);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #a1314f;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
+    }
+
+    .btn-outline:hover {
+      color: var(--pure-white);
+    }
+
+    /* ----- HEADER ----- */
+    .site-header {
+      background-color: var(--dark-burgundy-shade);
+      border-bottom: 4px solid var(--raspberry);
+      padding: 1.2rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo a {
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--pure-white);
+      text-decoration: none;
+      font-family: var(--font-elegant);
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #f0e4d3;
+      text-decoration: none;
+      font-weight: 300;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+      letter-spacing: 0.5px;
+      font-family: var(--font-elegant);
+    }
+
+    .nav-links a:hover {
+      color: var(--raspberry);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--pure-white);
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .social-header a {
+      color: #e0cfbc;
+      margin-left: 1.2rem;
+      font-size: 1.4rem;
+      transition: color 0.3s;
+    }
+
+    .social-header a:hover {
+      color: var(--raspberry);
+    }
+
+    /* ----- HERO (full screen with user image) ----- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 6rem 0 4rem;
+      text-align: center;
+      border-bottom: 2px solid var(--raspberry);
+      background: url('https://i.ibb.co/KzcK0Lky/Untitled-design-20260317-143454-0000.png') center/cover no-repeat;
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35); /* gentle overlay for text readability */
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .hero h2 {
+      font-size: clamp(3.5rem, 10vw, 5.5rem);
+      font-weight: 300;
+      color: var(--pure-white);
+      text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+      line-height: 1.1;
+      font-family: var(--font-serif);
+    }
+
+    .hero h4 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: #fff3e6;
+      margin: 1rem 0 2rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      font-family: var(--font-elegant);
+      letter-spacing: 2px;
+    }
+
+    /* ----- ANIMATIONS ----- */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .section {
+      padding: 5rem 0;
+      animation: fadeIn 1s ease;
+    }
+
+    .grid-2, .feature-grid, .pricing-card, .image-card, .video-block {
+      animation: fadeUp 0.8s ease backwards;
+    }
+
+    /* staggered delays */
+    .grid-2 > *:first-child { animation-delay: 0.1s; }
+    .grid-2 > *:last-child { animation-delay: 0.3s; }
+    .feature-grid .feature-card:nth-child(1) { animation-delay: 0.1s; }
+    .feature-grid .feature-card:nth-child(2) { animation-delay: 0.3s; }
+
+    /* ----- BALI WHITE SECTION ----- */
+    .bali-white {
+      background-color: var(--pure-white);
+      color: #121212;
+      padding: 5rem 0;
+    }
+    .bali-white h2, .bali-white .lead, .bali-white p {
+      color: #121212;
+    }
+    .bali-white .btn {
+      display: none;
+    }
+
+    /* ----- MEMBERSHIP DEEP ----- */
+    .membership-deep {
+      background-color: var(--deep-burgundy) !important;
+    }
+    .membership-deep * {
+      color: white !important;
+    }
+    .membership-deep .pricing-card {
+      background: #2f0f14;
+      border-color: var(--raspberry);
+    }
+
+    /* ----- ONLINE COURSES SECTION (background #860930) ----- */
+    .section-raspberry {
+      background-color: var(--raspberry) !important;
+    }
+    /* cards keep their own background for contrast */
+    .section-raspberry .feature-card {
+      background: #2f0f14; 
+    }
+
+    /* shared styles */
+    .image-card {
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--raspberry);
+      transition: transform 0.6s, box-shadow 0.4s;
+    }
+
+    .image-card:hover {
+      transform: scale(1.02) translateY(-8px);
+      box-shadow: 0 30px 40px -10px black;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.8s;
+    }
+
+    .image-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 2.5rem;
+      border: 1px solid var(--raspberry);
+      max-width: 550px;
+      margin: 0 auto;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 30px -10px #2f0f14;
+    }
+
+    .pricing-card .title {
+      font-size: 1.8rem;
+      color: #f0dbc0;
+    }
+
+    .price {
+      font-size: 3rem;
+      font-weight: 500;
+      margin: 1rem 0 0.3rem;
+    }
+
+    .price small {
+      font-size: 1rem;
+      font-weight: 300;
+      color: #dbbca0;
+    }
+
+    .period {
+      color: #dbbca0;
+      margin-bottom: 1rem;
+    }
+
+    .benefits {
+      list-style: none;
+      margin: 2rem 0;
+    }
+
+    .benefits li {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--raspberry);
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .benefits li i {
+      color: var(--raspberry);
+      width: 1.5rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border-radius: 2rem;
+      overflow: hidden;
+      transition: transform 0.4s, box-shadow 0.4s;
+      border: 1px solid var(--raspberry);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 30px 35px -10px black;
+    }
+
+    .feature-img {
+      height: 260px;
+      overflow: hidden;
+    }
+
+    .feature-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+
+    .feature-card:hover .feature-img img {
+      transform: scale(1.1);
+    }
+
+    .feature-content {
+      padding: 2rem;
+    }
+
+    .feature-content h3 {
+      font-size: 2.2rem;
+      font-weight: 300;
+      margin-bottom: 0.8rem;
+      color: #ecd9c0;
+      font-family: var(--font-serif);
+    }
+
+    .feature-content p {
+      color: #b7a792;
+      margin-bottom: 1.8rem;
+    }
+
+    .video-block {
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid var(--raspberry);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .video-block:hover {
+      transform: scale(1.02);
+      box-shadow: 0 25px 30px -8px black;
+    }
+
+    .video-thumb {
+      width: 100%;
+      display: block;
+    }
+
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      border: 2px solid var(--raspberry);
+      transition: 0.3s;
+    }
+
+    .play-btn:hover {
+      background: var(--raspberry);
+      color: #000;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .quote-section {
+      background: linear-gradient(rgba(70, 27, 34, 0.8), rgba(70, 27, 34, 0.8)), 
+                  url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2022&auto=format&fit=crop') center/cover;
+      min-height: 60vh;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .quote-block {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+
+    .quote-text {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.4;
+      font-family: var(--font-serif);
+      color: var(--pure-white);
+      font-style: italic;
+    }
+
+    .quote-author {
+      margin-top: 1.5rem;
+      color: #e0bca5;
+      font-size: 1.4rem;
+      font-family: var(--font-elegant);
+    }
+
+    .newsletter {
+      background: var(--dark-burgundy-shade);
+      border-radius: 4rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      border: 1px solid var(--raspberry);
+    }
+
+    .newsletter h3 {
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--pure-white);
+      font-family: var(--font-serif);
+    }
+
+    .newsletter p {
+      margin: 1rem 0 2rem;
+      color: #d4bcac;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 600px;
+      margin: 0 auto;
+      gap: 0.8rem;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 1.2rem 1.8rem;
+      border: none;
+      border-radius: 3rem;
+      background: #3f1620;
+      color: var(--pure-white);
+      font-size: 1.1rem;
+    }
+
+    .newsletter-form input::placeholder {
+      color: #b29583;
+    }
+
+    .newsletter-form button {
+      padding: 1.2rem 2.5rem;
+      border-radius: 3rem;
+      background: var(--raspberry);
+      border: none;
+      color: var(--pure-white);
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1.1rem;
+    }
+
+    .newsletter-form button:hover {
+      background: #b03b5c;
+      transform: translateY(-2px);
+    }
+
+    .site-footer {
+      background: var(--dark-burgundy-shade);
+      padding: 2.5rem 0;
+      border-top: 4px solid var(--raspberry);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-copy {
+      color: #cfaF9a;
+      font-size: 1rem;
+    }
+
+    .footer-links a {
+      color: #e0cfbc;
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-size: 1rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--raspberry);
+    }
+
+    .social-footer a {
+      color: #e0cfbc;
+      font-size: 1.4rem;
+      margin-left: 1.2rem;
+    }
+
+    .social-footer a:hover {
+      color: var(--raspberry);
+    }
+
+    .legal-note {
+      background: #1f0a0f;
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+      color: #b29583;
+      text-align: center;
+    }
+
+    /* responsiveness */
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        background: var(--dark-burgundy-shade);
+        padding: 1.5rem;
+        border-radius: 1rem;
+        margin-top: 0.5rem;
+        border: 1px solid var(--raspberry);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .header-inner {
+        position: relative;
+      }
+
+      .social-header {
+        margin-left: auto;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pricing-card {
+        padding: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="/">Palvi Gulati</a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="nav-links" id="mainNav">
+        <a href="#">Home</a>
+        <a href="#">Bio</a>
+        <a href="#">Gallery</a>
+        <a href="#">Programs</a>
+        <a href="#">Contact Us</a>
+      </nav>
+
+      <div class="social-header">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="Email"><i class="far fa-envelope"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO (full screen with user image) -->
+    <section class="hero">
+      <div class="container hero-content">
+        <h2>Palvi Gulati</h2>
+        <h4>The achievable can be achieved</h4>
+        <!-- no inner image, background is the provided image -->
+      </div>
+    </section>
+
+    <!-- BALI INTENSIVES white background, black text, group image -->
+    <section class="bali-white">
+      <div class="container grid-2">
+        <div>
+          <h2>Bali Intensives:<br>A Journey Inward</h2>
+          <p class="lead"><strong>Practice with presence. Transform with intention.</strong></p>
+          <p>Join me and Mark in Bali for a powerful yoga immersion. Each Intensive blends Mysore-style mornings, afternoon workshops, and the healing energy of nature. This is more than practice—it’s a space to reconnect with who you truly are.</p>
+        </div>
+        <div class="image-card">
+          <img src="https://images.unsplash.com/photo-1524863479829-916d8e77f114?q=80&w=2069&auto=format&fit=crop" alt="Happy group yoga" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- MONTHLY MEMBERSHIP with rupee, #461b22 bg -->
+    <section class="section membership-deep" style="background-color: #461b22;">
+      <div class="container">
+        <h2 style="text-align: center; color: white;">Monthly Membership</h2>
+        <div class="pricing-card">
+          <div class="title">ALL my recordings + classes + online courses</div>
+          <div class="price">₹5,000.00 <small>INR</small></div>
+          <div class="period">Every month</div>
+          <p style="color:#bfaa92;">Opening price of 5000 INR</p>
+          <ul class="benefits">
+            <li><i class="fas fa-check"></i> Weekly classes added</li>
+            <li><i class="fas fa-check"></i> Recordings + classes + online courses</li>
+            <li><i class="fas fa-check"></i> 24/7 access to the private membership dashboards</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Subscribe Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONLINE COURSES & PRIVATE SESSIONS – background #860930, with provided images -->
+    <section class="section section-raspberry" style="background-color: #860930;">
+      <div class="container">
+        <div class="feature-grid">
+          <!-- online courses card -->
+          <div class="feature-card">
+            <div class="feature-img">
+              <img src="https://i.ibb.co/23GffPsk/IMG-20260317-191051.jpg" alt="Online course">
+            </div>
+            <div class="feature-content">
+              <h3><em>New</em> Online Courses</h3>
+              <p>Practice yoga from home with Palvi Gulati.</p>
+              <a href="#" class="btn btn-outline">Discover Bundles</a>
+            </div>
+          </div>
+          <!-- private sessions card -->
+          <div class="feature-card">
+            <div class="feature-img">
+              <img src="https://i.ibb.co/KzcK0Lky/Untitled-design-20260317-143454-0000.png" alt="Private session">
+            </div>
+            <div class="feature-content">
+              <h3>Private Sessions</h3>
+              <p>Book your private session with Palvi Gulati.</p>
+              <a href="#" class="btn btn-outline">Book now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECOND MEMBERSHIP + VIDEO (unchanged, colors adapt) -->
+    <section class="section section-brown" style="background-color: #3f1620;">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+          <div>
+            <h2>Monthly Membership</h2>
+            <div style="background: #2f0f14; padding: 2rem; border-radius: 2.5rem; border:1px solid var(--raspberry);">
+              <div style="font-size: 1.8rem;">ALL my recordings + classes + online courses</div>
+              <div style="font-size: 2.8rem; margin:1rem 0;">₹5,000.00</div>
+              <div style="margin-bottom: 1rem;">Every month</div>
+              <p><em>Opening price of 5000 INR</em></p>
+              <ul style="list-style: none; margin: 2rem 0;">
+                <li><i class="fas fa-check" style="color:var(--raspberry); margin-right:0.5rem;"></i> Weekly classes added</li>
+                <li><i class="fas fa-check" style="color:var(--raspberry); margin-right:0.5rem;"></i> Recordings + classes + online courses</li>
+                <li><i class="fas fa-check" style="color:var(--raspberry); margin-right:0.5rem;"></i> 24/7 access</li>
+              </ul>
+              <a href="#" class="btn btn-primary">Subscribe Now</a>
+            </div>
+          </div>
+          <div class="video-block" onclick="alert('Video preview would play here.')">
+            <img class="video-thumb" src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?q=80&w=2070&auto=format&fit=crop" alt="Yoga video preview">
+            <div class="play-btn" aria-label="Play"><i class="fas fa-play"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESS / GALLERY SNIPPET (unchanged) -->
+    <section class="section section-dark" style="padding: 3rem 0; background-color: #2f0f14;">
+      <div class="container" style="text-align: center;">
+        <img src="https://images.squarespace-cdn.com/content/v1/5f3358474265747ccb753359/1597202672778-V40ZRSON9BHCL8N278UW/Vogue-Beauty-Awards-2018_deepika_mehta-600px.png" alt="Vogue feature" style="max-width: 280px; border-radius: 20px; opacity: 0.95; box-shadow: 0 15px 25px -5px black; border:2px solid var(--raspberry);">
+        <div style="margin-top: 2rem;">
+          <a href="#" class="btn btn-outline">Featured Media</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE SECTION -->
+    <section class="quote-section">
+      <div class="container quote-block">
+        <div class="quote-text">“You asked me what I came into the world to do… I came into the world to live out loud.”</div>
+        <div class="quote-author">—Emile Zola</div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="section section-brown" style="background-color: #3f1620;">
+      <div class="container newsletter">
+        <h3>Newsletter Sign-up</h3>
+        <p>Sign up with your email address to receive news and updates.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for signing up!');">
+          <input type="email" placeholder="Email Address" required>
+          <button type="submit">Sign Up</button>
+        </form>
+        <p style="font-size: 0.8rem; margin-top: 2rem; opacity: 0.8;">We respect your privacy. Unsubscribe anytime.</p>
+      </div>
+    </section>
+
+    <!-- LEGAL DISCLAIMER -->
+    <div class="legal-note">
+      <div class="container">
+        <p><strong>Terms & conditions, Privacy, Refunds:</strong> No cancellations or refunds. Use of this site subject to laws of India. Updated November 2024.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-copy">© PALVI GULATI 2025</div>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Press</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="social-footer">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="Email"><i class="far fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('show');
+        const icon = toggle.querySelector('i');
+        if (nav.classList.contains('show')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
