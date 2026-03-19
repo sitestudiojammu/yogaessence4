@@ -1,3 +1,6 @@
+The Google Maps link already uses a `maps.app.goo.gl` shortlink, which automatically opens the Google Maps app on mobile devices when installed, or falls back to the browser. No changes are needed. The complete code below includes your map link and ensures the header stays fixed on all devices.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1201,7 +1204,7 @@
         <div class="map-container" data-aos="zoom-in" data-aos-delay="200">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.699399039219!2d74.867223315177!3d32.728442280986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391e84b4c4b6b4b7%3A0x3b3b3b3b3b3b3b3b!2sTrikuta%20Nagar%2C%20Jammu%2C%20Jammu%20and%20Kashmir!5e0!3m2!1sen!2sin!4v1610000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <!-- Added Google Maps link -->
+        <!-- Added Google Maps link (opens in app on mobile) -->
         <div style="margin-top: 1.5rem;">
           <a href="https://maps.app.goo.gl/dgnL3rvSLxt8Cvqz6" target="_blank" rel="noopener" style="color: var(--warm-tan); text-decoration: none; font-weight: 400; border-bottom: 1px solid currentColor; padding-bottom: 2px;">📌 Open in Google Maps for directions</a>
         </div>
@@ -1429,3 +1432,4 @@
   </script>
 </body>
 </html>
+```
