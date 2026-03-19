@@ -168,14 +168,15 @@
       box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
     }
 
-    /* header */
+    /* header - ensure sticky on all devices */
     .site-header {
       background-color: var(--dark-brown-shade);
       border-bottom: 4px solid var(--warm-tan);
       padding: 1rem 0;
+      position: -webkit-sticky; /* for older Safari */
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 1000; /* higher than most elements */
       backdrop-filter: blur(5px);
       background-color: rgba(44, 30, 21, 0.95);
       width: 100%;
