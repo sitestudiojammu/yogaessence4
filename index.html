@@ -37,7 +37,7 @@
       color: var(--text-offwhite);
       line-height: 1.6;
       overflow-x: hidden;
-      padding-bottom: 100px; /* space for fixed buttons */
+      padding-bottom: 100px; /* space for fixed button */
     }
 
     .container {
@@ -307,39 +307,6 @@
     }
     .kashmir-white h2:after {
       background: var(--warm-tan);
-    }
-
-    .video-block {
-      position: relative;
-      border-radius: 2rem;
-      overflow: hidden;
-      cursor: pointer;
-      border: 2px solid var(--warm-tan);
-      transition: transform 0.4s, box-shadow 0.4s;
-      background: var(--card-bg);
-      min-height: 260px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
-    }
-
-    .video-block:hover {
-      transform: scale(1.02);
-      box-shadow: 0 30px 40px -10px black;
-    }
-
-    .video-placeholder-content {
-      text-align: center;
-      color: #ecd9c0;
-      font-family: var(--font-elegant);
-      padding: 2rem;
-    }
-
-    .video-placeholder-content i {
-      font-size: 4rem;
-      color: var(--warm-tan);
-      margin-bottom: 1rem;
     }
 
     .image-card {
@@ -645,7 +612,7 @@
       display: block;
     }
 
-    /* Fixed buttons - mobile friendly */
+    /* Fixed button - mobile friendly */
     .fixed-book-btn {
       position: fixed;
       bottom: 20px;
@@ -677,38 +644,6 @@
       background: #c49a7c;
       transform: translateX(-50%) scale(1.05);
       box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-    }
-
-    .fixed-whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 0.7rem 1.5rem;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      border: 2px solid white;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
-    }
-    .fixed-whatsapp:hover {
-      transform: scale(1.05);
-      background: #20b859;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-    }
-    .fixed-whatsapp i {
-      font-size: 1.6rem;
-    }
-    .fixed-whatsapp span {
-      font-size: 1rem;
-      font-weight: 500;
     }
 
     /* modals */
@@ -902,22 +837,6 @@
         font-size: 1rem;
         bottom: 15px;
       }
-      .fixed-whatsapp {
-        padding: 0.6rem 1.2rem;
-        bottom: 15px;
-        right: 15px;
-      }
-      .fixed-whatsapp span {
-        display: none; /* hide text on small screens, keep icon only */
-      }
-      .fixed-whatsapp i {
-        font-size: 1.8rem;
-        margin: 0;
-      }
-      .fixed-whatsapp {
-        padding: 0.6rem;
-        border-radius: 50%;
-      }
 
       .footer-inner {
         flex-direction: column;
@@ -963,48 +882,56 @@
         font-size: 1.8rem;
       }
       .cert-grid {
-        grid-template-columns: 1fr 1fr; /* two columns for small screens */
+        grid-template-columns: 1fr 1fr;
       }
     }
 
-    /* Additional mobile fixes for overflow issues */
-    @media (max-width: 600px) {
+    /* ADDITIONAL FIXES FOR VERY SMALL SCREENS (≤500px) */
+    @media (max-width: 500px) {
+      /* Reduce button padding to prevent overflow */
       .btn, .btn-light, .btn-primary {
-        padding: 0.7rem 1.2rem;  /* reduce horizontal padding */
-        font-size: 0.95rem;
-        white-space: normal;      /* allow text wrapping if needed */
-        word-break: break-word;
+        padding: 0.6rem 1rem !important;
+        font-size: 0.9rem !important;
+        white-space: normal !important;
+        word-break: break-word !important;
       }
+
+      /* Fixed book button: allow text to wrap and limit width */
       .fixed-book-btn {
-        white-space: normal;
-        max-width: calc(100vw - 30px);
-        text-align: center;
-        line-height: 1.3;
-        padding: 0.7rem 1rem;
-        font-size: 0.9rem;
+        white-space: normal !important;
+        max-width: calc(100vw - 30px) !important;
+        text-align: center !important;
+        line-height: 1.3 !important;
+        padding: 0.6rem 1rem !important;
+        font-size: 0.9rem !important;
+        gap: 0.3rem !important;
       }
-      .fixed-book-btn i {
-        margin-right: 0.3rem;
-      }
-      /* Ensure all images and embeds are responsive */
+
+      /* Ensure all images, iframes, and videos scale down */
       img, iframe, video {
         max-width: 100% !important;
         height: auto !important;
       }
-      /* Container padding adjust if needed */
+
+      /* Slightly reduce container padding for more space */
       .container {
-        padding: 0 1rem;
+        padding: 0 0.8rem !important;
       }
-      /* Any grid items that might cause overflow */
+
+      /* Prevent long words from breaking layout */
+      h1, h2, h3, p, .lead, .review-text, .benefits li {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+
+      /* Reduce gaps in grids to save horizontal space */
       .feature-grid, .reviews-grid, .cert-grid {
-        gap: 1rem; /* reduce gap if needed */
+        gap: 0.8rem !important;
       }
+
+      /* Make sure pricing card doesn't overflow */
       .pricing-card {
-        padding: 1.2rem;
-      }
-      /* Ensure text doesn't force overflow */
-      h2, p, .lead {
-        word-wrap: break-word;
+        padding: 1rem !important;
       }
     }
 
@@ -1059,21 +986,13 @@
       </div>
     </section>
 
-    <!-- Kashmir Intensives (white) -->
+    <!-- Kashmir Intensives (white) - video placeholder removed -->
     <section class="kashmir-white" data-aos="fade-up" data-aos-duration="800">
-      <div class="container grid-2">
+      <div class="container">
         <div>
           <h2>Kashmir Intensives:<br>A Journey Inward</h2>
           <p class="lead"><strong>Practice with presence. Transform with intention.</strong></p>
           <p>Join me in the breathtaking valley of Kashmir for a powerful yoga immersion. Each Intensive blends Mysore-style mornings, afternoon workshops, and the healing energy of the Himalayas. This is more than practice—it’s a space to reconnect with who you truly are.</p>
-        </div>
-        <!-- Wistia placeholder -->
-        <div class="video-block" id="wistia-placeholder">
-          <div class="video-placeholder-content">
-            <i class="fas fa-video"></i>
-            <p>Wistia video will be embedded here</p>
-            <small>(Replace with your embed code)</small>
-          </div>
         </div>
       </div>
     </section>
@@ -1186,12 +1105,12 @@
       </div>
     </section>
 
-    <!-- Free session -->
+    <!-- Free session (static button removed) -->
     <section class="section" style="background-color: var(--medium-brown); padding-top: 2rem;" data-aos="fade-up" data-aos-duration="800">
       <div class="container free-session">
         <h3>Your first session is completely free</h3>
         <p>In‑studio at Trikuta Nagar or online. No commitment.</p>
-        <a href="#" class="btn btn-light" id="freeSessionBtn">Claim Your Free Session →</a>
+        <!-- The non-floating button has been removed -->
       </div>
     </section>
 
@@ -1229,11 +1148,7 @@
   <!-- Fixed Book Free Session button (center) -->
   <a href="#" class="fixed-book-btn" id="fixedBookBtn"><i class="fas fa-calendar-alt"></i> Book Free Session</a>
 
-  <!-- Fixed WhatsApp icon + number (right) - on mobile, only icon shows -->
-  <a href="https://wa.me/917006647404?text=Hello%20Palvi%2C%20I%27m%20interested%20in%20your%20yoga%20classes." class="fixed-whatsapp" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-    <span>+91 70066 47404</span>
-  </a>
+  <!-- Floating WhatsApp icon removed -->
 
   <!-- Modal for Subscribe Now (membership) -->
   <div class="modal" id="subscribeModal">
@@ -1380,10 +1295,7 @@
       freeWhatsapp.value = '';
     });
 
-    document.getElementById('freeSessionBtn').addEventListener('click', (e) => {
-      e.preventDefault();
-      modalFree.classList.add('active');
-    });
+    // The event listener for the removed freeSessionBtn has been deleted.
   </script>
 </body>
 </html>
