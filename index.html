@@ -967,6 +967,47 @@
       }
     }
 
+    /* Additional mobile fixes for overflow issues */
+    @media (max-width: 600px) {
+      .btn, .btn-light, .btn-primary {
+        padding: 0.7rem 1.2rem;  /* reduce horizontal padding */
+        font-size: 0.95rem;
+        white-space: normal;      /* allow text wrapping if needed */
+        word-break: break-word;
+      }
+      .fixed-book-btn {
+        white-space: normal;
+        max-width: calc(100vw - 30px);
+        text-align: center;
+        line-height: 1.3;
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+      }
+      .fixed-book-btn i {
+        margin-right: 0.3rem;
+      }
+      /* Ensure all images and embeds are responsive */
+      img, iframe, video {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+      /* Container padding adjust if needed */
+      .container {
+        padding: 0 1rem;
+      }
+      /* Any grid items that might cause overflow */
+      .feature-grid, .reviews-grid, .cert-grid {
+        gap: 1rem; /* reduce gap if needed */
+      }
+      .pricing-card {
+        padding: 1.2rem;
+      }
+      /* Ensure text doesn't force overflow */
+      h2, p, .lead {
+        word-wrap: break-word;
+      }
+    }
+
     /* menu toggle for mobile */
     @media (max-width: 900px) {
       .menu-toggle {
