@@ -11,10 +11,17 @@
   <!-- AOS (Animate On Scroll) for section animations -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
+    /* ===== CRITICAL FIX: Prevent horizontal overflow/scroll ===== */
+    html {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      max-width: 100%;
     }
 
     :root {
@@ -37,11 +44,14 @@
       color: var(--text-offwhite);
       line-height: 1.6;
       overflow-x: hidden;
+      width: 100%;
+      position: relative;
       padding-bottom: 100px; /* space for fixed button */
     }
 
     .container {
       max-width: 1280px;
+      width: 100%;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
@@ -168,6 +178,7 @@
       z-index: 10;
       backdrop-filter: blur(5px);
       background-color: rgba(44, 30, 21, 0.95);
+      width: 100%;
     }
 
     .header-inner {
@@ -235,6 +246,7 @@
     .hero {
       position: relative;
       min-height: 100vh;
+      width: 100%;
       display: flex;
       align-items: flex-end;
       padding: 6rem 0 4rem;
@@ -294,6 +306,7 @@
 
     .section {
       padding: 4rem 0;
+      width: 100%;
     }
 
     /* kashmir white section */
@@ -301,6 +314,7 @@
       background-color: var(--pure-white);
       color: #121212;
       padding: 4rem 0;
+      width: 100%;
     }
     .kashmir-white h2, .kashmir-white .lead, .kashmir-white p {
       color: #121212;
@@ -354,6 +368,7 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
+      width: 100%;
     }
 
     .feature-card {
@@ -410,6 +425,7 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
+      width: 100%;
     }
 
     .review-card {
@@ -456,6 +472,7 @@
       grid-template-columns: 1fr 2fr;
       gap: 3rem;
       align-items: center;
+      width: 100%;
     }
 
     .meet-image img {
@@ -500,6 +517,7 @@
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 1.5rem;
       margin-top: 2rem;
+      width: 100%;
     }
 
     .cert-item {
@@ -548,6 +566,7 @@
     .faq-grid {
       max-width: 800px;
       margin: 2rem auto 0;
+      width: 100%;
     }
     .faq-item {
       background: var(--light-brown-faq);
@@ -604,6 +623,7 @@
       overflow: hidden;
       border: 2px solid var(--warm-tan);
       box-shadow: 0 20px 30px -10px black;
+      width: 100%;
     }
     .map-container iframe {
       width: 100%;
@@ -644,6 +664,36 @@
       background: #c49a7c;
       transform: translateX(-50%) scale(1.05);
       box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    }
+
+    /* Floating WhatsApp icon (new) */
+    .floating-wa {
+      position: fixed;
+      bottom: 100px;   /* above the fixed book button on desktop */
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 2.4rem;
+      line-height: 60px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      z-index: 101;    /* above the fixed button */
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .floating-wa:hover {
+      background-color: #128C7E;
+      transform: scale(1.1);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    }
+    .floating-wa i {
+      font-size: 2.2rem;
     }
 
     /* modals */
@@ -733,8 +783,9 @@
 
     .site-footer {
       background: var(--dark-brown-shade);
-      padding: 2rem 0;
+      padding: 2rem 0 1rem;
       border-top: 4px solid var(--warm-tan);
+      width: 100%;
     }
 
     .footer-inner {
@@ -772,14 +823,6 @@
     .social-footer a:hover {
       color: var(--warm-tan);
       transform: translateY(-3px);
-    }
-
-    .legal-note {
-      background: #1f0a0f;
-      padding: 1.5rem 0;
-      font-size: 0.85rem;
-      color: #b29583;
-      text-align: center;
     }
 
     /* ===== MOBILE OPTIMIZATIONS ===== */
@@ -838,6 +881,18 @@
         bottom: 15px;
       }
 
+      .floating-wa {
+        bottom: 90px;   /* above fixed button on mobile */
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 2rem;
+      }
+      .floating-wa i {
+        font-size: 1.8rem;
+      }
+
       .footer-inner {
         flex-direction: column;
         text-align: center;
@@ -884,19 +939,23 @@
       .cert-grid {
         grid-template-columns: 1fr 1fr;
       }
+      .floating-wa {
+        bottom: 80px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 1.8rem;
+      }
     }
 
-    /* ADDITIONAL FIXES FOR VERY SMALL SCREENS (≤500px) */
     @media (max-width: 500px) {
-      /* Reduce button padding to prevent overflow */
       .btn, .btn-light, .btn-primary {
         padding: 0.6rem 1rem !important;
         font-size: 0.9rem !important;
         white-space: normal !important;
         word-break: break-word !important;
       }
-
-      /* Fixed book button: allow text to wrap and limit width */
       .fixed-book-btn {
         white-space: normal !important;
         max-width: calc(100vw - 30px) !important;
@@ -906,41 +965,29 @@
         font-size: 0.9rem !important;
         gap: 0.3rem !important;
       }
-
-      /* Ensure all images, iframes, and videos scale down */
       img, iframe, video {
         max-width: 100% !important;
         height: auto !important;
       }
-
-      /* Slightly reduce container padding for more space */
       .container {
         padding: 0 0.8rem !important;
       }
-
-      /* Prevent long words from breaking layout */
       h1, h2, h3, p, .lead, .review-text, .benefits li {
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
       }
-
-      /* Reduce gaps in grids to save horizontal space */
       .feature-grid, .reviews-grid, .cert-grid {
         gap: 0.8rem !important;
       }
-
-      /* Make sure pricing card doesn't overflow */
       .pricing-card {
         padding: 1rem !important;
       }
     }
 
-    /* menu toggle for mobile */
     @media (max-width: 900px) {
       .menu-toggle {
         display: block;
       }
-
       .nav-links {
         display: none;
         flex-direction: column;
@@ -952,14 +999,28 @@
         margin-top: 0.5rem;
         border: 1px solid var(--warm-tan);
       }
-
       .nav-links.show {
         display: flex;
       }
-
       .header-inner {
         position: relative;
       }
+    }
+    /* designer credit */
+    .designer-credit {
+      text-align: center;
+      padding: 1rem 0;
+      background-color: var(--dark-brown-shade);
+      color: #b29583;
+      font-size: 0.85rem;
+      border-top: 1px solid var(--warm-tan);
+    }
+    .designer-credit a {
+      color: var(--warm-tan);
+      text-decoration: none;
+    }
+    .designer-credit a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -986,13 +1047,13 @@
       </div>
     </section>
 
-    <!-- Kashmir Intensives (white) - video placeholder removed -->
+    <!-- Kashmir Intensives (white) -->
     <section class="kashmir-white" data-aos="fade-up" data-aos-duration="800">
       <div class="container">
         <div>
           <h2>Kashmir Intensives:<br>A Journey Inward</h2>
           <p class="lead"><strong>Practice with presence. Transform with intention.</strong></p>
-          <p>Join me in the breathtaking valley of Kashmir for a powerful yoga immersion. Each Intensive blends Mysore-style mornings, afternoon workshops, and the healing energy of the Himalayas. This is more than practice—it’s a space to reconnect with who you truly are.</p>
+          <p>Join me in the breathtaking valley of Kashmir for a powerful yoga immersion. Each Intensive blends Mysore-style mornings, afternoon workshops, and the healing energy of the Himalayas. This is more than practice—it's a space to reconnect with who you truly are.</p>
         </div>
       </div>
     </section>
@@ -1002,7 +1063,6 @@
       <div class="container text-center">
         <h2 style="text-align: center;">Specialised classes with Palvi</h2>
         <div class="feature-grid">
-          <!-- Ashtanga Vinyasa Flow -->
           <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
             <div class="feature-img">
               <img src="https://images.unsplash.com/photo-1588286840104-8127c6c6a9b1?q=80&w=2070&auto=format&fit=crop" alt="Ashtanga Vinyasa Flow">
@@ -1012,7 +1072,6 @@
               <p>Dynamic, structured sequence linking breath and movement.</p>
             </div>
           </div>
-          <!-- Hatha Yoga -->
           <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
             <div class="feature-img">
               <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2020&auto=format&fit=crop" alt="Hatha Yoga">
@@ -1022,7 +1081,6 @@
               <p>Gentle, foundational poses to align and calm the body.</p>
             </div>
           </div>
-          <!-- Kids Yoga -->
           <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
             <div class="feature-img">
               <img src="https://images.unsplash.com/photo-1524593689594-aae2f26b75ab?q=80&w=2070&auto=format&fit=crop" alt="Kids Yoga">
@@ -1032,7 +1090,6 @@
               <p>Fun, engaging yoga to build strength and creativity.</p>
             </div>
           </div>
-          <!-- Pre Natal & Post Natal Classes -->
           <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
             <div class="feature-img">
               <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop" alt="Pre Natal and Post Natal Classes">
@@ -1043,6 +1100,15 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Kids Yoga Summer Camp section -->
+    <section class="section" style="background-color: var(--dark-brown-shade);" data-aos="fade-up" data-aos-duration="800">
+      <div class="container text-center">
+        <h2 style="text-align: center;">Kids Yoga Summer Camp</h2>
+        <p class="lead" style="max-width: 600px; margin: 0 auto 2rem;">Fun, engaging, and mindful yoga for children aged 5–12. Build strength, flexibility, and creativity in a playful environment.</p>
+        <a href="#" class="btn btn-primary" id="campBtn">Check Availability</a>
       </div>
     </section>
 
@@ -1072,8 +1138,8 @@
       <div class="container text-center">
         <h2 style="text-align: center;">What our students say</h2>
         <div class="reviews-grid">
-          <div class="review-card" data-aos="fade-right" data-aos-delay="100"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Palvi’s classes have transformed my mornings. The perfect blend of strength and calm. So grateful to have her studio in Trikuta Nagar."</p><div class="review-author">— Riya Sharma</div><div class="review-location">Trikuta Nagar, Jammu</div></div>
-          <div class="review-card" data-aos="fade-up" data-aos-delay="200"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"After my pregnancy, I was looking for a safe practice. Palvi’s postnatal classes helped me regain strength gently. Highly recommend!"</p><div class="review-author">— Ankit Verma</div><div class="review-location">Gandhinagar, Jammu</div></div>
+          <div class="review-card" data-aos="fade-right" data-aos-delay="100"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Palvi's classes have transformed my mornings. The perfect blend of strength and calm. So grateful to have her studio in Trikuta Nagar."</p><div class="review-author">— Riya Sharma</div><div class="review-location">Trikuta Nagar, Jammu</div></div>
+          <div class="review-card" data-aos="fade-up" data-aos-delay="200"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"After my pregnancy, I was looking for a safe practice. Palvi's postnatal classes helped me regain strength gently. Highly recommend!"</p><div class="review-author">— Ankit Verma</div><div class="review-location">Gandhinagar, Jammu</div></div>
           <div class="review-card" data-aos="fade-left" data-aos-delay="300"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"I love the flexibility of offline and online options. Palvi creates a welcoming space for everyone. My stress levels have dropped so much."</p><div class="review-author">— Neha Gupta</div><div class="review-location">Jammu City</div></div>
         </div>
       </div>
@@ -1105,12 +1171,12 @@
       </div>
     </section>
 
-    <!-- Free session (static button removed) -->
+    <!-- Free session with Book Now button -->
     <section class="section" style="background-color: var(--medium-brown); padding-top: 2rem;" data-aos="fade-up" data-aos-duration="800">
       <div class="container free-session">
         <h3>Your first session is completely free</h3>
         <p>In‑studio at Trikuta Nagar or online. No commitment.</p>
-        <!-- The non-floating button has been removed -->
+        <a href="#" class="btn btn-primary" id="freeBookNowBtn">Book Now</a>
       </div>
     </section>
 
@@ -1134,21 +1200,21 @@
         <div class="map-container" data-aos="zoom-in" data-aos-delay="200">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.699399039219!2d74.867223315177!3d32.728442280986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391e84b4c4b6b4b7%3A0x3b3b3b3b3b3b3b3b!2sTrikuta%20Nagar%2C%20Jammu%2C%20Jammu%20and%20Kashmir!5e0!3m2!1sen!2sin!4v1610000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+        <!-- Added Google Maps link -->
+        <div style="margin-top: 1.5rem;">
+          <a href="https://maps.app.goo.gl/dgnL3rvSLxt8Cvqz6" target="_blank" rel="noopener" style="color: var(--warm-tan); text-decoration: none; font-weight: 400; border-bottom: 1px solid currentColor; padding-bottom: 2px;">📌 Open in Google Maps for directions</a>
+        </div>
       </div>
     </section>
-
-    <!-- Legal note -->
-    <div class="legal-note">
-      <div class="container">
-        <p><strong>Terms & conditions, Privacy, Refunds:</strong> No cancellations or refunds. Use of this site subject to laws of India. Updated November 2024.</p>
-      </div>
-    </div>
   </main>
 
   <!-- Fixed Book Free Session button (center) -->
   <a href="#" class="fixed-book-btn" id="fixedBookBtn"><i class="fas fa-calendar-alt"></i> Book Free Session</a>
 
-  <!-- Floating WhatsApp icon removed -->
+  <!-- Floating WhatsApp Icon (new) -->
+  <a href="https://wa.me/917006647404?text=Hi%20Palvi%2C%20I'm%20interested%20in%20yoga%20classes" class="floating-wa" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <!-- Modal for Subscribe Now (membership) -->
   <div class="modal" id="subscribeModal">
@@ -1174,18 +1240,36 @@
     </div>
   </div>
 
+  <!-- Modal for Kids Yoga Summer Camp -->
+  <div class="modal" id="campModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeCampModal">&times;</span>
+      <h3>Kids Yoga Summer Camp</h3>
+      <p style="margin-bottom: 1rem;">Enter your name and WhatsApp to check availability.</p>
+      <input type="text" id="campName" placeholder="Your Name" required>
+      <input type="tel" id="campWhatsapp" placeholder="WhatsApp Number (with country code)" required>
+      <button id="campSubmit">Send Request</button>
+    </div>
+  </div>
+
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-copy">© PALVI GULATI 2025</div>
       <div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#contact">Contact</a></div>
       <div class="social-footer">
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <!-- Yoga Essence Instagram link updated -->
+        <a href="https://www.instagram.com/yogaessence20" target="_blank" aria-label="Instagram Yoga Essence"><i class="fab fa-instagram"></i></a>
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         <a href="#" aria-label="Email"><i class="far fa-envelope"></i></a>
       </div>
     </div>
   </footer>
+
+  <!-- Designer credit (replaces legal note) -->
+  <div class="designer-credit">
+    Designed by <a href="https://www.instagram.com/sitestudiojammu" target="_blank">Site Studio Jammu</a>
+  </div>
 
   <!-- AOS initialization script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1218,7 +1302,6 @@
     // FAQ toggle
     function toggleFaq(element) {
       const answer = element.nextElementSibling;
-      const icon = element.querySelector('i');
       element.classList.toggle('open');
       answer.classList.toggle('show');
     }
@@ -1259,18 +1342,24 @@
       modalWhatsapp.value = '';
     });
 
-    // Modal for Free Session
+    // Modal for Free Session (opened by fixed button and new Book Now button)
     const modalFree = document.getElementById('freeSessionModal');
     const fixedBookBtn = document.getElementById('fixedBookBtn');
+    const freeBookNowBtn = document.getElementById('freeBookNowBtn');
     const closeFreeModal = document.getElementById('closeFreeModal');
     const freeSubmit = document.getElementById('freeSubmit');
     const freeName = document.getElementById('freeName');
     const freeWhatsapp = document.getElementById('freeWhatsapp');
 
-    fixedBookBtn.addEventListener('click', (e) => {
+    function openFreeModal(e) {
       e.preventDefault();
       modalFree.classList.add('active');
-    });
+    }
+
+    fixedBookBtn.addEventListener('click', openFreeModal);
+    if (freeBookNowBtn) {
+      freeBookNowBtn.addEventListener('click', openFreeModal);
+    }
 
     closeFreeModal.addEventListener('click', () => {
       modalFree.classList.remove('active');
@@ -1295,7 +1384,47 @@
       freeWhatsapp.value = '';
     });
 
-    // The event listener for the removed freeSessionBtn has been deleted.
+    // Modal for Kids Yoga Summer Camp
+    const modalCamp = document.getElementById('campModal');
+    const campBtn = document.getElementById('campBtn');
+    const closeCampModal = document.getElementById('closeCampModal');
+    const campSubmit = document.getElementById('campSubmit');
+    const campName = document.getElementById('campName');
+    const campWhatsapp = document.getElementById('campWhatsapp');
+
+    if (campBtn) {
+      campBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalCamp.classList.add('active');
+      });
+    }
+
+    if (closeCampModal) {
+      closeCampModal.addEventListener('click', () => {
+        modalCamp.classList.remove('active');
+      });
+    }
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modalCamp) modalCamp.classList.remove('active');
+    });
+
+    if (campSubmit) {
+      campSubmit.addEventListener('click', () => {
+        const name = campName.value.trim();
+        const wa = campWhatsapp.value.trim();
+        if (!name || !wa) {
+          alert('Please fill both fields');
+          return;
+        }
+        const message = `Kids Yoga Summer Camp inquiry from ${name}, WhatsApp: ${wa}`;
+        const url = `https://wa.me/917006647404?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+        modalCamp.classList.remove('active');
+        campName.value = '';
+        campWhatsapp.value = '';
+      });
+    }
   </script>
 </body>
 </html>
